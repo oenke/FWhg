@@ -15,6 +15,7 @@ public class Modul_Buchung {
     int Wohnung = 10;
     int Kundennummer = 365; //Fuer jeden Tag eine Kundenummer
     String Buchungsdaten[ ][ ] = new String[Wohnung][Kundennummer]; //Vorname, Nachname, Adresse
+    Buchungsdaten = Buchungsdaten;
     do {
       
     } while (Auswahl != 5); // end of do-while

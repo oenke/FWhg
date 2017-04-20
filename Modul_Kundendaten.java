@@ -10,7 +10,7 @@ import java.util.*;
   PROGRAMMKOPF ENDE*/
 
 public class Modul_Kundendaten {  
-  public static void main(String[] args) {  // Beginn der Hauptfunktion
+  public static void main(String[] args,String[][] Kundendatenarray) {  // Beginn der Hauptfunktion
     int Auswahl;
     int AnzahlKunden = 50;
     int Eintrage = 3;

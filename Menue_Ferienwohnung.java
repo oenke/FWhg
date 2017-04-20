@@ -37,7 +37,7 @@ public class Menue_Ferienwohnung {
           
         break;
         case  2: 
-          Modul_Kundendaten.main(args);
+          Modul_Kundendaten.main(args, Kundendaten);
           // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
           // Kundendaten werden geladen....
         break;
