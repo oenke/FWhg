@@ -19,8 +19,8 @@ public class Modul_Kundendaten {
       System.out.println("\nBitte Waehlen Sie eine Option aus:\n"); //Schreibt den gegebenen Text
       System.out.println("1 - Fuer Eingabe neuer Kundendaten");
       System.out.println("2 - Zum Veraendern von Kundendaten.");
-      System.out.println("3 - Für Ausgabe eines bestimmter Kundendaten.");
-      System.out.println("4 - Für die Ausgabe aller Kundendaten.");
+      System.out.println("3 - Fuer Ausgabe eines bestimmter Kundendaten.");
+      System.out.println("4 - Fuer die Ausgabe aller Kundendaten.");
       System.out.println("5 - Zum Beenden des Programms.");
       Auswahl = Tastatur.liesInt(); 
       
