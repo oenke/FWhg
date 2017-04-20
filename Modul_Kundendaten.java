@@ -5,7 +5,7 @@ import java.util.*;
   * @version 1.0 vom 25.11.2016
   * 
   * Klasse: FS 63
-  * Name: Lukas Wüstenhagen
+  * Name: Lukas Wuestenhagen
   *
   PROGRAMMKOPF ENDE*/
 
@@ -13,10 +13,10 @@ public class Modul_Kundendaten {
   public static void main(String[] args) {  // Beginn der Hauptfunktion
     int Auswahl;
     int AnzahlKunden = 50;
-    int Einträge = 3;
-    String Kundendaten[ ][ ] = new String[AnzahlKunden][Einträge]; //Vorname, Nachname, Adresse
+    int Eintrage = 3;
+    String Kundendaten[ ][ ] = new String[AnzahlKunden][Eintrage]; //Vorname, Nachname, Adresse
     do {
-      System.out.println("Bitte Wählen Sie eine Option aus."); //Schreibt den gegebenen Text
+      System.out.println("Bitte Waehlen Sie eine Option aus."); //Schreibt den gegebenen Text
       System.out.println("1. Für Eingabe neuer Kundendaten");
       System.out.println("2. Zum Verändern von Kundendaten.");
       System.out.println("3. Für Ausgabe eines bestimmter Kundendaten.");
@@ -26,8 +26,8 @@ public class Modul_Kundendaten {
       
       switch (Auswahl) {
         case  1:
-          if (Einträge >= AnzahlKunden) {
-            System.out.print("Zu viele Einträge.");
+          if (Eintrage >= AnzahlKunden) {
+            System.out.print("Zu viele Eintraege.");
           } // end of if
           else {
             int k = 0;
@@ -54,11 +54,11 @@ public class Modul_Kundendaten {
               } // end of switch
             } // end of for
             
-            Einträge++;
+            Eintrage++;
           } // end of if-else
           break;
         case  2:
-          System.out.print("Bitte geben Sie den Datensatz ein den Sie verändern wollen: ");
+          System.out.print("Bitte geben Sie den Datensatz ein den Sie veraendern wollen: ");
           int Ausgabewahl2 = Tastatur.liesInt()-1;
           if (Ausgabewahl2 > AnzahlKunden) {
             System.out.print("Datensatz nicht vorhanden.");
@@ -115,7 +115,7 @@ public class Modul_Kundendaten {
           
           break;
         default: 
-        System.out.println("\nKeine gültige Eingabe!");
+        System.out.println("\nKeine gueltige Eingabe!");
       } // end of switch
     } while (Auswahl != 5); // end of do-while
     
