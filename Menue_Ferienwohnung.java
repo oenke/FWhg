@@ -33,36 +33,35 @@ public class Menue_Ferienwohnung {
       
       switch (wahl) {
         case  1: 
-        System.out.println( "1 - Ausgabe einer bzw aller Auslastung(en) der Ferienwohnung(en)  "); // -> Modul Uebersicht
-        
+          System.out.println( "1 - Ausgabe einer bzw aller Auslastung(en) der Ferienwohnung(en)  "); // -> Modul Uebersicht
+          
         break;
         case  2: 
-        Modul_Kundendaten.main();
-        // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
-        // Kundendaten werden geladen....
+          Modul_Kundendaten.main(args);
+          // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
+          // Kundendaten werden geladen....
         break;
         case 3:
-        // Module_Buchung.main();
-        
+          // Module_Buchung.main();
+          
         break;
         case 4:
-        // ->Modul_KPreisberechnung.main();
+          // ->Modul_KPreisberechnung.main();
         break;                             
         case 5:
-        // Modul_Update.main();
+          // Modul_Update.main();
         break;
         case 6:
-        // Modul_FPreisbearbeitung.main();
+          // Modul_FPreisbearbeitung.main();
         break;
         case 7:
-        System.out.println( "Beenden des Programms...");
+          System.out.println( "Beenden des Programms...");
         break;
         default:
-        System.out.println("Fehleingabe");
-        
+          System.out.println("Fehleingabe");
+          
       } 
     }while(wahl != 7);  
-    
   } 
 }
   
