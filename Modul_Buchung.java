@@ -156,7 +156,7 @@ public class Modul_Buchung {
     return kalendertag;
   } // end of main  
 
-  public static void menu(int jahr, String[][] Buchungsdaten) {  // Beginn der Hauptfunktion
+  public static void menu(int jahr, String[][] Buchungsdaten, String [][] Kundendaten) {  // Beginn der Hauptfunktion
     char Auswahl;
     //int Wohnung = 10;
     //int Datum = 365; //Fuer jeden Tag eine Kundenummer
@@ -203,7 +203,7 @@ public class Modul_Buchung {
       } while (belegt == true); // end of do-while
       
       for (int i=anfangsdatum;i<=enddatum;i++ ) {
-        Buchungsdaten[wohnungswahl][i] = "Belegt";
+        Buchungsdaten[wohnungswahl][i] = Kundennummerfehltnoch;
       } // end of for
       
       System.out.println("\nDruecken Sie 'e' zum beenden des Unterprogrammes.");
