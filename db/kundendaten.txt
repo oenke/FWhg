@@ -1,1 +1,1 @@
-Hans;Müller;Musterstrasse 12
+X;X;X;
