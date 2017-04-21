@@ -10,13 +10,13 @@ import java.util.*;
   PROGRAMMKOPF ENDE*/
 
 public class Modul_Buchung {
-  public static int Datum() {
-    int tag = 0, monat = 0, jahr = 0; //Deklarationsteil
+  public static int Datum(int jahr) {
+    int tag = 0, monat = 0; //Deklarationsteil
     boolean fehler = false, tagpasstzumonat = false;
     char weitermachen;
     
     do {
-      while (fehler == false) { 
+      /*while (fehler == false) { 
         System.out.print("Bitte geben Sie das Jahr ein: "); //Schreibt den gegebenen Text 
         jahr = Tastatur.liesInt(); //Setzt zahl1 auf den Ausgelesen Wert von der Tastatur
         if (jahr >= 1582 && jahr <= 2499) {
@@ -26,7 +26,8 @@ public class Modul_Buchung {
           System.out.print("Die Eingabe ist Falsch, bitte wiederholen.\n"); //Schreibt den gegebenen Text 
         } // end of if-else
       } // end of while
-      fehler = false;
+      fehler = false;*/
+      System.out.println("Jahr: " + jahr); //Schreibt den gegebenen Text
       
       while (fehler == false) { 
         System.out.print("Bitte geben Sie den Monat ein: "); //Schreibt den gegebenen Text 
@@ -51,7 +52,7 @@ public class Modul_Buchung {
             } // end of if
             break;
             case  2: 
-            if (tag == 29) { //FÜR FEBRUAR NOCH SCHALTJAHRE BERECHNEN
+            if (tag == 29) { //FUER FEBRUAR NOCH SCHALTJAHRE BERECHNEN
               if (jahr % 4 == 0) {
                 if (jahr % 100 == 0) {
                   if (jahr % 400 == 0) {
@@ -155,21 +156,21 @@ public class Modul_Buchung {
     return kalendertag;
   } // end of main  
     
-  public static void main(String[] args) {  // Beginn der Hauptfunktion
+  public static void main(String[] args, int jahr) {  // Beginn der Hauptfunktion
     char Auswahl;
     int Wohnung = 10;
     int Datum = 365; //Fuer jeden Tag eine Kundenummer
     String Buchungsdaten[ ][ ] = new String[Wohnung][Datum]; //Vorname, Nachname, Adresse
     Buchungsdaten = Buchungsdaten;
     do {
-      System.out.println("Wählen Sie die Wohnung aus (1-10):");
+      System.out.println("\nWählen Sie die Wohnung aus (1-10):");
       int wohnungswahl = Tastatur.liesInt()-1;
       int anfangsdatum,enddatum;
       boolean belegt = false; 
       
       do { 
         System.out.println("\nAnfangsdatum der Buchung bitte eingeben."); 
-        anfangsdatum = Modul_Buchung.Datum();
+        anfangsdatum = Modul_Buchung.Datum(jahr);
         System.out.println("Anfangstag: " + anfangsdatum);
         belegt = false;
         if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
@@ -181,7 +182,7 @@ public class Modul_Buchung {
       
       do {
         System.out.println("\nEnddatum der Buchung bitte eingeben."); 
-        enddatum = Modul_Buchung.Datum();
+        enddatum = Modul_Buchung.Datum(jahr);
         System.out.println("Anfangs: " + anfangsdatum);
         System.out.println("Endtag: " + enddatum);
         belegt = false;
@@ -205,7 +206,7 @@ public class Modul_Buchung {
         Buchungsdaten[wohnungswahl][i] = "Belegt";
       } // end of for
       
-      System.out.println("\nDrücken Sie e zum beenden des Unterprogrammes.");
+      System.out.println("\nDrücken Sie 'e' zum beenden des Unterprogrammes.");
       System.out.println("Drücken Sie einen beliebigen Knopf zum wiederholen.");
       Auswahl = Tastatur.liesChar();
     } while (Auswahl != 'e'); // end of do-while

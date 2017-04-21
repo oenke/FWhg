@@ -14,6 +14,7 @@ public class Ferienwohnung {
     
     int wahl;
     int wahl2;
+    int jahr = 2017;
     boolean wdh = true;
     int AnzahlKunden = 50;  // Modul Kundendaten
     String Kundendaten [] [] = new String [AnzahlKunden][3]; // Modul Kundendaten ArrayParameter
@@ -42,11 +43,10 @@ public class Ferienwohnung {
           // Kundendaten werden geladen....
         break;
         case 3:
-        // Module_Buchung.main();
-        
+          Modul_Buchung.main(args,jahr);
         break;
         case 4:
-        // ->Modul_KPreisberechnung.main();
+          // ->Modul_KPreisberechnung.main();
         break;                             
         case 5:
         // Modul_Update.main();
