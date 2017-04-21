@@ -10,11 +10,11 @@ import java.util.*;
   PROGRAMMKOPF ENDE*/
 
 public class Modul_Kundendaten {  
-  public static void main(String[] args,String[][] Kundendatenarray) {  // Beginn der Hauptfunktion
+  public static void menu(String[][] Kundendaten, int AnzahlKunden, int Eintrage) {  // Beginn der Hauptfunktion
     int Auswahl;
-    int AnzahlKunden = 50;
-    int Eintrage = 3;
-    String Kundendaten[ ][ ] = new String[AnzahlKunden][Eintrage]; //Vorname, Nachname, Adresse
+    //int AnzahlKunden = 50;
+    //int Eintrage = 3;
+    //String Kundendaten[ ][ ] = new String[AnzahlKunden][Eintrage]; //Vorname, Nachname, Adresse
     do {
       System.out.println("\nBitte Waehlen Sie eine Option aus:\n"); //Schreibt den gegebenen Text
       System.out.println("1 - Fuer Eingabe neuer Kundendaten");

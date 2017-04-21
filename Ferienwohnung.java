@@ -16,8 +16,16 @@ public class Ferienwohnung {
     int wahl2;
     int jahr = 2017;
     boolean wdh = true;
+    
     int AnzahlKunden = 50;  // Modul Kundendaten
-    String Kundendaten [] [] = new String [AnzahlKunden][3]; // Modul Kundendaten ArrayParameter
+    int Eintrage = 3;
+    String Kundendaten [] [] = new String [AnzahlKunden][Eintrage]; // Modul Kundendaten ArrayParameter
+    
+    int Wohnung = 10; //Modul Buchungsdaten
+    int Datum = 365; //Fuer jeden Tag eine Kundenummer
+    String Buchungsdaten[ ][ ] = new String[Wohnung][Datum];
+    
+    String fwohnungen[][] = new String[Wohnung][3]; 
     
     System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
     do{
@@ -38,12 +46,12 @@ public class Ferienwohnung {
         
         break;
         case  2: 
-          Modul_Kundendaten.main(args,Kundendaten);
+          Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
           // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
           // Kundendaten werden geladen....
         break;
         case 3:
-          Modul_Buchung.main(args,jahr);
+          Modul_Buchung.menu(jahr,Buchungsdaten);
         break;
         case 4:
           // ->Modul_KPreisberechnung.main();

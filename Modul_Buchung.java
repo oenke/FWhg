@@ -155,15 +155,15 @@ public class Modul_Buchung {
    
     return kalendertag;
   } // end of main  
-    
-  public static void main(String[] args, int jahr) {  // Beginn der Hauptfunktion
+
+  public static void menu(int jahr, String[][] Buchungsdaten) {  // Beginn der Hauptfunktion
     char Auswahl;
-    int Wohnung = 10;
-    int Datum = 365; //Fuer jeden Tag eine Kundenummer
-    String Buchungsdaten[ ][ ] = new String[Wohnung][Datum]; //Vorname, Nachname, Adresse
-    Buchungsdaten = Buchungsdaten;
+    //int Wohnung = 10;
+    //int Datum = 365; //Fuer jeden Tag eine Kundenummer
+    //String Buchungsdaten[ ][ ] = new String[Wohnung][Datum]; //Vorname, Nachname, Adresse
+    //Buchungsdaten = Buchungsdaten;
     do {
-      System.out.println("\nWählen Sie die Wohnung aus (1-10):");
+      System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
       int wohnungswahl = Tastatur.liesInt()-1;
       int anfangsdatum,enddatum;
       boolean belegt = false; 
@@ -175,7 +175,7 @@ public class Modul_Buchung {
         belegt = false;
         if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
           belegt = true;
-          System.out.println("\nDie Wohnung ist an diesem Datum schon belegt. Bitte anderes Datum wählen.");
+          System.out.println("\nDie Wohnung ist an diesem Datum schon belegt. Bitte anderes Datum waehlen.");
         } // end of if
         
       } while (belegt == true); // end of do-while
@@ -188,14 +188,14 @@ public class Modul_Buchung {
         belegt = false;
         if (enddatum <= anfangsdatum) {
           belegt = true;
-          System.out.println("\nDies ist keine gültiges Datum da es kleiner oder gleich groß als das Anfangsdatum ist.");
+          System.out.println("\nDies ist keine gueltiges Datum da es kleiner oder gleich gross als das Anfangsdatum ist.");
         }
         else {
           int gesamttag = enddatum - anfangsdatum;
           for (int i=anfangsdatum;i<=enddatum;i++ ) {
             if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
               belegt = true;
-              System.out.println("\nDie Wohnung ist am " + i + " schon belegt. Anderes Datum wählen.");
+              System.out.println("\nDie Wohnung ist am " + i + " schon belegt. Anderes Datum waehlen.");
             } // end of if
           } // end of for
           System.out.println("\n" + gesamttag + " Tage wurden gebucht.");
@@ -206,8 +206,8 @@ public class Modul_Buchung {
         Buchungsdaten[wohnungswahl][i] = "Belegt";
       } // end of for
       
-      System.out.println("\nDrücken Sie 'e' zum beenden des Unterprogrammes.");
-      System.out.println("Drücken Sie einen beliebigen Knopf zum wiederholen.");
+      System.out.println("\nDruecken Sie 'e' zum beenden des Unterprogrammes.");
+      System.out.println("Druecken Sie einen beliebigen Knopf zum wiederholen.");
       Auswahl = Tastatur.liesChar();
     } while (Auswahl != 'e'); // end of do-while
     
