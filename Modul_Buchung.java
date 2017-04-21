@@ -159,7 +159,6 @@ public class Modul_Buchung {
     int Auswahl = 0;
     int Wohnung = 10;
     int Datum = 365; //Fuer jeden Tag eine Kundenummer
-    int Tag,Monat,Jahr;
     String Buchungsdaten[ ][ ] = new String[Wohnung][Datum]; //Vorname, Nachname, Adresse
     Buchungsdaten = Buchungsdaten;
     do {
@@ -203,7 +202,7 @@ public class Modul_Buchung {
       } while (belegt == true); // end of do-while
       
       for (int i=anfangsdatum;i<=enddatum;i++ ) {
-        Buchungsdaten[wohnungswahl][anfangsdatum] = "Belegt";
+        Buchungsdaten[wohnungswahl][i] = "Belegt";
       } // end of for
       
       System.out.println("\n5 zum Beenden des Programmes");
