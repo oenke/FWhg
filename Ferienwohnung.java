@@ -37,9 +37,9 @@ public class Ferienwohnung {
         
         break;
         case  2: 
-        Modul_Kundendaten.main(args);
-        // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
-        // Kundendaten werden geladen....
+          Modul_Kundendaten.main(args,Kundendaten);
+          // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
+          // Kundendaten werden geladen....
         break;
         case 3:
         // Module_Buchung.main();

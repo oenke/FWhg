@@ -156,7 +156,7 @@ public class Modul_Buchung {
   } // end of main  
     
   public static void main(String[] args) {  // Beginn der Hauptfunktion
-    int Auswahl = 0;
+    char Auswahl;
     int Wohnung = 10;
     int Datum = 365; //Fuer jeden Tag eine Kundenummer
     String Buchungsdaten[ ][ ] = new String[Wohnung][Datum]; //Vorname, Nachname, Adresse
@@ -205,9 +205,10 @@ public class Modul_Buchung {
         Buchungsdaten[wohnungswahl][i] = "Belegt";
       } // end of for
       
-      System.out.println("\n5 zum Beenden des Programmes");
-      Auswahl = Tastatur.liesInt();
-    } while (Auswahl != 5); // end of do-while
+      System.out.println("\nDrücken Sie e zum beenden des Unterprogrammes.");
+      System.out.println("Drücken Sie einen beliebigen Knopf zum wiederholen.");
+      Auswahl = Tastatur.liesChar();
+    } while (Auswahl != 'e'); // end of do-while
     
     //return Buchungsdaten;
   } // Ender der Hauptfunktion
