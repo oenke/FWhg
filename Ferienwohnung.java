@@ -29,7 +29,7 @@ public class Ferienwohnung {
     
     System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
     do{
-      //Modul_Update('g',......);
+      Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,jahr);
       System.out.println("\n1 - Uebersicht der Ferienwohnungen");
       System.out.println("2 - Erstellen,einsehen, und bearbeiten von Kundendaten");
       System.out.println("3 - Buchung von Ferienwohnung");
@@ -46,21 +46,22 @@ public class Ferienwohnung {
         
         break;
         case  2: 
-          Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
-          // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
-          // Kundendaten werden geladen....
+        Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
+        // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
+        // Kundendaten werden geladen....
         break;
         case 3:
-          Modul_Buchung.menu(jahr,Buchungsdaten);
+        Modul_Buchung.menu(jahr,Buchungsdaten);
         break;
         case 4:
-          // ->Modul_KPreisberechnung.main();
+        // ->Modul_KPreisberechnung.main();
         break;                             
         case 5:
-        // Modul_Update.main();
+        Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,jahr);
+        Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,jahr);
         break;
         case 6:
-        // Modul_FPreisbearbeitung.main();
+        fwohnungen = Modul_FwhgAendern.aendern(fwohnungen);
         break;
         case 7:
         System.out.println( "Beenden des Programms...");
@@ -69,9 +70,8 @@ public class Ferienwohnung {
         System.out.println("Fehleingabe");
         
       } 
+      Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,jahr);
     }while(wahl != 7);  
     
   } 
 }
-  
-
