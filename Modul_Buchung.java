@@ -8,17 +8,6 @@ import java.util.*;
   * Name: Lukas Wuestenhagen
   *
   PROGRAMMKOPF ENDE*/
-/** PROGRAMMKOPF
-  * Zinsrechner
-  * Beschreibung
-  * Ein Simpler Datum
-  *
-  * @version 1.0 vom 30.09.2016
-  * 
-  * Klasse: FS 63
-  * Name: Lukas Wüstenhagen
-  *
-  PROGRAMMKOPF ENDE*/
 
 public class Modul_Buchung {
   public static int Datum() {
@@ -152,12 +141,12 @@ public class Modul_Buchung {
       } // end of if-else
       //System.out.printf("Das Jahr lautet %2d.%2d.%4d\n",tag,monat,jahr); //Schreibt den gegebenen Text
       
-      if (tagpasstzumonat == true) {
+      /*if (tagpasstzumonat == true) {
         System.out.printf("Das Datum ist korrekt!\n\n"); //Schreibt den gegebenen Text 
       } // end of if
       else {
         System.out.printf("Das Datum ist falsch!\n\n"); //Schreibt den gegebenen Text 
-      } // end of if-else
+      } // end of if-else */
     } while (tagpasstzumonat == false); // end of do-while
 
     GregorianCalendar beliebigesDatum = new GregorianCalendar(jahr,monat-1,tag,0,0,0);
@@ -176,21 +165,46 @@ public class Modul_Buchung {
     do {
       System.out.println("Wählen Sie die Wohnung aus (1-10):");
       int wohnungswahl = Tastatur.liesInt()-1;
-      int anfangsdatum;
+      int anfangsdatum,enddatum;
       boolean belegt = false; 
       
-      do {
+      do { 
+        System.out.println("\nAnfangsdatum der Buchung bitte eingeben."); 
         anfangsdatum = Modul_Buchung.Datum();
+        System.out.println("Anfangstag: " + anfangsdatum);
         belegt = false;
         if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
           belegt = true;
-          System.out.println("\n Die Wohnung ist an diesem Datum schon belegt. Bitte anderes Datum wählen.");
+          System.out.println("\nDie Wohnung ist an diesem Datum schon belegt. Bitte anderes Datum wählen.");
         } // end of if
-        System.out.println("Kalendertag vom beliebigenTag: " + anfangsdatum);
+        
       } while (belegt == true); // end of do-while
       
-      Buchungsdaten[wohnungswahl][anfangsdatum] = "Belegt";
+      do {
+        System.out.println("\nEnddatum der Buchung bitte eingeben."); 
+        enddatum = Modul_Buchung.Datum();
+        System.out.println("Anfangs: " + anfangsdatum);
+        System.out.println("Endtag: " + enddatum);
+        belegt = false;
+        if (enddatum <= anfangsdatum) {
+          belegt = true;
+          System.out.println("\nDies ist keine gültiges Datum da es kleiner oder gleich groß als das Anfangsdatum ist.");
+        }
+        else {
+          int gesamttag = enddatum - anfangsdatum;
+          for (int i=anfangsdatum;i<=enddatum;i++ ) {
+            if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
+              belegt = true;
+              System.out.println("\nDie Wohnung ist am " + i + " schon belegt. Anderes Datum wählen.");
+            } // end of if
+          } // end of for
+          System.out.println("\n" + gesamttag + " Tage wurden gebucht.");
+        } // end of if-else
+      } while (belegt == true); // end of do-while
       
+      for (int i=anfangsdatum;i<=enddatum;i++ ) {
+        Buchungsdaten[wohnungswahl][anfangsdatum] = "Belegt";
+      } // end of for
       
       System.out.println("\n5 zum Beenden des Programmes");
       Auswahl = Tastatur.liesInt();
