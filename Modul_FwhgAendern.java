@@ -29,11 +29,11 @@ public class Modul_FwhgAendern {
     
     wahl = Tastatur.liesInt();
     
-    System.out.println("Geben Sie den neuen Preis ein: "); 
+    System.out.println("Geben Sie bitte den neuen Preis ein: "); 
     
     fwhg[wahl][1] = String.valueOf(Tastatur.liesInt());
     
-    System.out.println("Geben Sie die neue Groeﬂe ein: "); 
+    System.out.println("Geben Sie bitte die neue Groeﬂe ein: "); 
     
     fwhg[wahl][2] = String.valueOf(Tastatur.liesInt());
     
