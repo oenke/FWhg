@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.*;
 /** PROGRAMMKOPF
   * Modul Buchung
   *
@@ -163,84 +162,75 @@ public class Modul_Buchung {
     //int Datum = 365; //Fuer jeden Tag eine Kundenummer
     //String Buchungsdaten[ ][ ] = new String[Wohnung][Datum]; //Vorname, Nachname, Adresse
     //Buchungsdaten = Buchungsdaten;
-    do {
-      System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
-      int wohnungswahl = Tastatur.liesInt()-1;
-      int anfangsdatum,enddatum;
-      boolean belegt = false; 
-      
-      do { 
-        System.out.println("\nAnfangsdatum der Buchung bitte eingeben."); 
-        anfangsdatum = Modul_Buchung.Datum(jahr);
-        System.out.println("Anfangstag: " + anfangsdatum);
-        belegt = false;
-        if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
-          belegt = true;
-          System.out.println("\nDie Wohnung ist an diesem Datum schon belegt. Bitte anderes Datum waehlen.");
-        } // end of if
-        
-      } while (belegt == true); // end of do-while
-      
-      do {
-        System.out.println("\nEnddatum der Buchung bitte eingeben."); 
-        enddatum = Modul_Buchung.Datum(jahr);
-        System.out.println("Anfangs: " + anfangsdatum);
-        System.out.println("Endtag: " + enddatum);
-        belegt = false;
-        if (enddatum <= anfangsdatum) {
-          belegt = true;
-          System.out.println("\nDies ist keine gueltiges Datum da es kleiner oder gleich gross als das Anfangsdatum ist.");
-        }
-        else {
-          int gesamttag = enddatum - anfangsdatum;
-          for (int i=anfangsdatum;i<=enddatum;i++ ) {
-            if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
-              belegt = true;
-              System.out.println("\nDie Wohnung ist am " + i + " schon belegt. Anderes Datum waehlen.");
-            } // end of if
-          } // end of for
-          System.out.println("\n" + gesamttag + " Tage wurden gebucht.");
-        } // end of if-else
-      } while (belegt == true); // end of do-while
-      
-      for (int i=anfangsdatum;i<=enddatum;i++ ) {
-        int KundNmr;
-        do {
-          System.out.println("\nBitte die Kundennummer eingeben."); 
-          System.out.println("\nZur Ausgabe aller Kunden einmal 0 eingeben.");
-          System.out.println("\nZum abbrechen des Programms 999 eingeben.");
-          KundNmr = Tastatur.liesInt();
-          if (KundNmr == 0) {
-            for (int t=0;t<50; t++) {
-            if (Kundendaten[t][0] != null) {
-              for (int k=0;k<3;k++) {
-                  System.out.println((t+1)+". "+Kundendaten[t][k]);
-                } // end of for
-                System.out.println("____________________");
-              } // end of if
-            } // end of for
-          }
-          else if (KundNmr==999) {
-            return; 
-          } // end of if-else
-          else {
-            System.out.println(Kundendaten[KundNmr-1][0]);
-            if (Kundendaten[KundNmr-1][0] == null) {
-              KundNmr = 0;
-              System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
-            } // end of if
-          } // end of if-else
-        } while (KundNmr == 0); // end of do-while
-        
-        String strI = Integer.toString(KundNmr-1);
-        Buchungsdaten[wohnungswahl][i] = strI;
-      } // end of for 
-      
-      System.out.println("\nDruecken Sie 'e' zum beenden des Unterprogrammes.");
-      System.out.println("Druecken Sie einen beliebigen Knopf zum wiederholen.");
-      Auswahl = Tastatur.liesChar();
-    } while (Auswahl != 'e'); // end of do-while
     
-    //return Buchungsdaten;
+    System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
+    int wohnungswahl = Tastatur.liesInt()-1;
+    int anfangsdatum,enddatum;
+    boolean belegt = false; 
+    
+    do { 
+      System.out.println("\nAnfangsdatum der Buchung bitte eingeben."); 
+      anfangsdatum = Modul_Buchung.Datum(jahr);
+      belegt = false;
+      if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
+        belegt = true;
+        System.out.println("\nDie Wohnung ist an diesem Datum schon belegt. Bitte anderes Datum waehlen.");
+      } // end of if
+      
+    } while (belegt == true); // end of do-while
+    
+    do {
+      System.out.println("\nEnddatum der Buchung bitte eingeben."); 
+      enddatum = Modul_Buchung.Datum(jahr);
+      belegt = false;
+      if (enddatum <= anfangsdatum) {
+        belegt = true;
+        System.out.println("\nDies ist keine gueltiges Datum da es kleiner oder gleich gross als das Anfangsdatum ist.");
+      }
+      else {
+        int gesamttag = enddatum - anfangsdatum;
+        for (int i=anfangsdatum;i<=enddatum;i++ ) {
+          if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {
+            belegt = true;
+            System.out.println("\nDie Wohnung ist am " + i + " schon belegt. Anderes Datum waehlen.");
+          } // end of if
+        } // end of for
+        System.out.println("\n" + gesamttag + " Tage wurden gebucht.");
+      } // end of if-else
+    } while (belegt == true); // end of do-while
+    
+    
+    int KundNmr;
+    do {
+      System.out.println("\nBitte die Kundennummer eingeben."); 
+      System.out.println("\nZur Ausgabe aller Kunden einmal 0 eingeben.");
+      System.out.println("\nZum abbrechen des Programms 999 eingeben.");
+      KundNmr = Tastatur.liesInt();
+      if (KundNmr == 0) {
+        for (int t=0;t<50; t++) {
+        if (Kundendaten[t][0] != null) {
+          for (int k=0;k<3;k++) {
+              System.out.println((t+1)+". "+Kundendaten[t][k]);
+            } // end of for
+            System.out.println("____________________");
+          } // end of if
+        } // end of for
+      }
+      else if (KundNmr==999) {
+        return; 
+      } // end of if-else
+      else {
+        System.out.println(Kundendaten[KundNmr-1][0]);
+        if (Kundendaten[KundNmr-1][0] == null) {
+          KundNmr = 0;
+          System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
+        } // end of if
+      } // end of if-else
+    } while (KundNmr == 0); // end of do-while
+    
+    for (int i=anfangsdatum;i<=enddatum;i++ ) {  
+      String strI = Integer.toString(KundNmr-1);
+      Buchungsdaten[wohnungswahl][i] = strI;
+    } // end of for 
   } // Ender der Hauptfunktion
 } // end of class EAngestellte

@@ -33,7 +33,7 @@ public class Modul_FwhgAendern {
     
     fwhg[wahl][1] = String.valueOf(Tastatur.liesInt());
     
-    System.out.println("Geben Sie bitte die neue Groeﬂe ein: "); 
+    System.out.println("Geben Sie bitte die neue Groesse ein: "); 
     
     fwhg[wahl][2] = String.valueOf(Tastatur.liesInt());
     
