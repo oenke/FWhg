@@ -140,14 +140,6 @@ public class Modul_Buchung {
       else {
         System.out.printf("%2d.%4d\n",monat,jahr); //Schreibt den gegebenen Text
       } // end of if-else
-      //System.out.printf("Das Jahr lautet %2d.%2d.%4d\n",tag,monat,jahr); //Schreibt den gegebenen Text
-      
-      /*if (tagpasstzumonat == true) {
-        System.out.printf("Das Datum ist korrekt!\n\n"); //Schreibt den gegebenen Text 
-      } // end of if
-      else {
-        System.out.printf("Das Datum ist falsch!\n\n"); //Schreibt den gegebenen Text 
-      } // end of if-else */
     } while (tagpasstzumonat == false); // end of do-while
 
     GregorianCalendar beliebigesDatum = new GregorianCalendar(jahr,monat-1,tag,0,0,0);
@@ -158,10 +150,6 @@ public class Modul_Buchung {
 
   public static void menu(int jahr, String[][] Buchungsdaten, String [][] Kundendaten) {  // Beginn der Hauptfunktion
     char Auswahl;
-    //int Wohnung = 10;
-    //int Datum = 365; //Fuer jeden Tag eine Kundenummer
-    //String Buchungsdaten[ ][ ] = new String[Wohnung][Datum]; //Vorname, Nachname, Adresse
-    //Buchungsdaten = Buchungsdaten;
     
     System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
     int wohnungswahl = Tastatur.liesInt()-1;
@@ -197,8 +185,8 @@ public class Modul_Buchung {
         } // end of for
         System.out.println("\n" + gesamttag + " Tage wurden gebucht.");
         
-        //Modul_Preisbrechenung.menu(wohnungswahl,gesamttag);                                        //PREISBERECHNUNG
-        System.out.println("Den Preis annehmen? j zum Fortfahren, andere Eingabe zum abbrechen");   //FALLS ANGENOMMEN FORTFAHREN ANSONSTEN ABBRECHEN
+        Modul_Preisberechnung.menu(wohnungswahl,gesamttag);                                      //PREISBERECHNUNG
+        System.out.println("\nDen Preis annehmen? j zum Fortfahren, andere Eingabe zum abbrechen");   //FALLS ANGENOMMEN FORTFAHREN ANSONSTEN ABBRECHEN
         char Wahlo = Tastatur.liesChar();
         if (Wahlo != 'j') {
           return;
