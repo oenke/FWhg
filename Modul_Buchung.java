@@ -146,15 +146,19 @@ public class Modul_Buchung {
     int kalendertag =  beliebigesDatum.get( Calendar.DAY_OF_YEAR );
    
     return kalendertag;
-  } // end of main  
+  } // end of datum  
+  
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  public static void menu(int jahr, String[][] Buchungsdaten, String [][] Kundendaten) {  // Beginn der Hauptfunktion
+  public static void menu(int jahr, String[][] Buchungsdaten, String [][] Kundendaten,String[][] fwohnungen) {  // Beginn der Hauptfunktion
     char Auswahl;
     
     System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
     int wohnungswahl = Tastatur.liesInt()-1;
     int anfangsdatum,enddatum;
     boolean belegt = false; 
+    
+    String umsaetze [] = new String [10];
     
     do { 
       System.out.println("\nAnfangsdatum der Buchung bitte eingeben."); 
@@ -185,12 +189,16 @@ public class Modul_Buchung {
         } // end of for
         System.out.println("\n" + gesamttag + " Tage wurden gebucht.");
         
-        Modul_Preisberechnung.menu(wohnungswahl,gesamttag);                                      //PREISBERECHNUNG
+        int foo = Integer.valueOf(fwohnungen[wohnungswahl][1]);
+        double gesamtpreis = Modul_Preisberechnung.berechnung(gesamttag,foo); //PREISBERECHNUNG
         System.out.println("\nDen Preis annehmen? j zum Fortfahren, andere Eingabe zum abbrechen");   //FALLS ANGENOMMEN FORTFAHREN ANSONSTEN ABBRECHEN
         char Wahlo = Tastatur.liesChar();
         if (Wahlo != 'j') {
           return;
-        } // end of if 
+        }else{
+          umsaetze[wohnungswahl] = umsaetze[wohnungswahl] + gesamtpreis;
+        }// end of if
+         
       } // end of if-else
     } while (belegt == true); // end of do-while
     

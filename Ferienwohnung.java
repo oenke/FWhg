@@ -50,7 +50,7 @@ public class Ferienwohnung {
         Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
         break;
         case 3:
-        Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten);
+        Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten,fwohnungen);
         break;
         case 4:
         // ->Modul_KPreisberechnung.main();
