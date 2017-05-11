@@ -24,11 +24,13 @@ public class Ferienwohnung {
     String Buchungsdaten[ ][ ] = new String[Wohnung][Datum];
     
     String fwohnungen[][] = new String[Wohnung][3]; 
+    String umsaetze[][] = new String[Wohnung][2]; 
     
+    Modul_Update2.checkDB(jahr);
     do{
       Modul_Update2.getDbANZ(dbANZ);
       Wohnung = dbANZ[0];
-      Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,jahr);
+      Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
       System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
       System.out.println("                    Sie befinden sich aktuell im Jahr "+jahr);
       System.out.println("\n1 - Uebersicht der Ferienwohnungen");
@@ -57,8 +59,8 @@ public class Ferienwohnung {
         break;                             
         case 5:
         try{
-          Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,jahr);
-          Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,jahr);
+          Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
+          Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
           System.out.println("Die Daten wurden erfolgreich aktualisiert!");
           
         }catch(Exception e) {
@@ -80,7 +82,7 @@ public class Ferienwohnung {
         System.out.println("Fehleingabe");
         
       } 
-      Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,jahr);
+      Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
     }while(wahl != 8);  
     
   } 

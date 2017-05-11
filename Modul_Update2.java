@@ -1,5 +1,24 @@
- import java.io.*;
+import java.io.*;
 public class Modul_Update2 {
+  public static void checkDB(int jahr){
+    String data1 = "db/umsaetze_"+jahr+".txt";
+    File f = new File(data1);
+    if(!f.exists()) { 
+      try {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(data1));
+        for (int i = 0; i < 10; i++) {
+          writer.write((i+1)+";");
+          writer.write("0;");
+          writer.newLine(); 
+        }
+        writer.close();
+      }
+      catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    
+  }
   public static void getDbANZ(int dbANZ[]){
     String dataFwhg = "db/fwohnungen.txt";
     BufferedReader br = null;
@@ -16,8 +35,8 @@ public class Modul_Update2 {
     
   }
   
-  public static void read(String fwhg[][],String kdata[][],String bdata[][],int jahr){
-    String dataFwhg = "db/fwohnungen.txt", dataKunden = "db/kundendaten.txt", dataBuchung = "db/buchungsdaten_"+jahr+".txt";
+  public static void read(String fwhg[][],String kdata[][],String bdata[][],String umsaetze[][],int jahr){
+    String dataFwhg = "db/fwohnungen.txt", dataKunden = "db/kundendaten.txt", dataBuchung = "db/buchungsdaten_"+jahr+".txt", dataUmsaetze = "db/umsaetze_"+jahr+".txt";
     BufferedReader br = null;
     try {
       br = new BufferedReader(new FileReader(new File(dataFwhg)));
@@ -69,13 +88,29 @@ public class Modul_Update2 {
       System.out.println("Fuer das Jahr "+jahr+" bestehen bisher noch keine Buchungen!");
     } catch(IOException e) {
       //e.printStackTrace();
-    }    
+    }
+    
+    br = null;
+    try {
+      br = new BufferedReader(new FileReader(new File(dataUmsaetze)));
+      String line = null;
+      for (int i=0;(line = br.readLine()) != null ;i++ ) {
+        String[] parts = line.split(";"); 
+        for (int l = 0;l<umsaetze[i].length;l++ ) { 
+          umsaetze[i][l] = parts[l];
+        } // end of for
+      } // end of for
+    } catch(FileNotFoundException e) {
+      e.printStackTrace();
+    } catch(IOException e) {
+      e.printStackTrace();
+    }  
     
   }
   
   
-  public static void write(String fwhg[][],String kdata[][],String bdata[][],int jahr){
-    String dataFwhg = "db/fwohnungen.txt", dataKunden = "db/kundendaten.txt", dataBuchung = "db/buchungsdaten_"+jahr+".txt";
+  public static void write(String fwhg[][],String kdata[][],String bdata[][],String umsaetze[][],int jahr){
+    String dataFwhg = "db/fwohnungen.txt", dataKunden = "db/kundendaten.txt", dataBuchung = "db/buchungsdaten_"+jahr+".txt",dataUmsaetze = "db/umsaetze_"+jahr+".txt";
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(dataFwhg));
       writer.write(String.valueOf(fwhg.length));
@@ -138,6 +173,24 @@ public class Modul_Update2 {
       e.printStackTrace();
     }
     
+    try {
+      BufferedWriter writer = new BufferedWriter(new FileWriter(dataUmsaetze));
+      for (int i = 0; i < umsaetze.length; i++) {
+        for (int j = 0; j < umsaetze[i].length; j++) {
+          if (fwhg[i][j] != null) {
+            writer.write(umsaetze[i][j] + ";");  
+          } // end of if 
+        }
+        if (fwhg[i][1] != null) {
+          writer.newLine(); 
+        } // end of if
+      }
+      writer.close();
+      
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
     
   }
   
