@@ -196,9 +196,15 @@ public class Modul_Buchung {
           } // end of if
         } // end of for
         System.out.println("\n" + gesamttag + " Tage wurden gebucht.");
+        
+        //Modul_Preisbrechenung.menu(wohnungswahl,gesamttag);                                        //PREISBERECHNUNG
+        System.out.println("Den Preis annehmen? j zum Fortfahren, andere Eingabe zum abbrechen");   //FALLS ANGENOMMEN FORTFAHREN ANSONSTEN ABBRECHEN
+        char Wahlo = Tastatur.liesChar();
+        if (Wahlo != 'j') {
+          return;
+        } // end of if 
       } // end of if-else
     } while (belegt == true); // end of do-while
-    
     
     int KundNmr;
     do {

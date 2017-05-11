@@ -27,11 +27,12 @@ public class Ferienwohnung {
     
     String fwohnungen[][] = new String[Wohnung][3]; 
     
-    System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
+    
     do{
+      System.out.println("\n____________________Managementsystem fuer Ferienwohnungen_______________________");
       Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,jahr);
       System.out.println("\n1 - Uebersicht der Ferienwohnungen");
-      System.out.println("2 - Erstellen,einsehen, und bearbeiten von Kundendaten");
+      System.out.println("2 - Erstellen,einsehen und bearbeiten von Kundendaten");
       System.out.println("3 - Buchung von Ferienwohnung");
       System.out.println("4 - Preisberechnung (Kunden)");
       System.out.println("5 - Update aller Daten");
@@ -42,29 +43,27 @@ public class Ferienwohnung {
       
       switch (wahl) {
         case  1: 
-        System.out.println( "1 - Ausgabe einer bzw aller Auslastung(en) der Ferienwohnung(en)  "); // -> Modul Uebersicht
-        
+          System.out.println( "1 - Ausgabe einer bzw aller Auslastung(en) der Ferienwohnung(en)  "); // -> Modul Uebersicht
         break;
         case  2: 
-        Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
-        // Modul_Kundendaten.Menu(Kundendaten,AnzahlKunden);
-        // Kundendaten werden geladen....
+          Modul_Kundendaten.menu(Kundendaten,AnzahlKunden,Eintrage);
         break;
         case 3:
-        Modul_Buchung.menu(jahr,Buchungsdaten, Kundendaten);
+          Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten);
         break;
         case 4:
-        // ->Modul_KPreisberechnung.main();
+          // ->Modul_KPreisberechnung.main();
         break;                             
         case 5:
-        Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,jahr);
-        Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,jahr);
+          Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,jahr);
+          Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,jahr);
+          System.out.println( "Alle Datenbanken aktualisiert!");
         break;
         case 6:
-        fwohnungen = Modul_FwhgAendern.aendern(fwohnungen);
+          fwohnungen = Modul_FwhgAendern.aendern(fwohnungen);
         break;
         case 7:
-        System.out.println( "Beenden des Programms...");
+          System.out.println( "Programm wird beendet...");
         break;
         default:
         System.out.println("Fehleingabe");
