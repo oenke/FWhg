@@ -4,7 +4,7 @@
   * 
   * Author: Nico Fischer, Lukas Wuestenhagen, Daniel Schoenke, Jony Nchamadi
   * AS-Projekt
-  * Programmbeschreibung: Verwaltungssystem für Ferienwohnungen  
+  * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen  
   * 
   */ 
 
@@ -25,9 +25,9 @@ public class Modul_FwhgAendern {
       
     } // end of for
     
-    System.out.println("\nWelche Ferienwohnung möchten Sie aender? ");
+    System.out.println("\nWelche Ferienwohnung moechten Sie aender? ");
     
-    wahl = Tastatur.liesInt();
+    wahl = (Tastatur.liesInt() -1);
     
     System.out.println("Geben Sie bitte den neuen Preis ein: "); 
     
