@@ -1,1 +1,5 @@
-X;X;X;
+Steve;Fischer;Baumweg 3;
+Klaus;Karsten;Kiefernweg 4;
+Fujitsu;Siemens;Computers 13;
+Hubert;Cherry;Straussweg 3;
+Paul;Glass;Glassweg 22;
