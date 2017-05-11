@@ -1,5 +1,20 @@
  import java.io.*;
 public class Modul_Update2 {
+  public static void getDbANZ(int dbANZ[]){
+    String dataFwhg = "db/fwohnungen.txt";
+    BufferedReader br = null;
+    try {
+      br = new BufferedReader(new FileReader(new File(dataFwhg)));
+      String line = null;
+      line = br.readLine();
+      dbANZ[0] = Integer.valueOf(line);
+    } catch(FileNotFoundException e) {
+      e.printStackTrace();
+    } catch(IOException e) {
+      e.printStackTrace();
+    }
+    
+  }
   
   public static void read(String fwhg[][],String kdata[][],String bdata[][],int jahr){
     String dataFwhg = "db/fwohnungen.txt", dataKunden = "db/kundendaten.txt", dataBuchung = "db/buchungsdaten_"+jahr+".txt";
@@ -7,17 +22,19 @@ public class Modul_Update2 {
     try {
       br = new BufferedReader(new FileReader(new File(dataFwhg)));
       String line = null;
-      for (int i=0;(line = br.readLine()) != null ;i++ ) {
+      line = br.readLine();
+      for (int i=0;i < fwhg.length;i++ ) {
+        line = br.readLine();
         String[] parts = line.split(";"); 
-        for (int l = 0;l<fwhg[i].length;l++ ) {
+        for (int l = 0;l<fwhg[i].length;l++ ) { 
           fwhg[i][l] = parts[l];
         } // end of for
       } // end of for
     } catch(FileNotFoundException e) {
       e.printStackTrace();
-    } catch(IOException e) {
+    }catch(IOException e) {
       e.printStackTrace();
-    }
+    }  
     
     br = null;
     try {
@@ -61,6 +78,8 @@ public class Modul_Update2 {
     String dataFwhg = "db/fwohnungen.txt", dataKunden = "db/kundendaten.txt", dataBuchung = "db/buchungsdaten_"+jahr+".txt";
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(dataFwhg));
+      writer.write(String.valueOf(fwhg.length));
+      writer.newLine();
       for (int i = 0; i < fwhg.length; i++) {
         for (int j = 0; j < fwhg[i].length; j++) {
           if (fwhg[i][j] != null) {
