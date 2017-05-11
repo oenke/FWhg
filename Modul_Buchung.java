@@ -224,14 +224,15 @@ public class Modul_Buchung {
             return; 
           } // end of if-else
           else {
-            if (Kundendaten[KundNmr][0] == null) {
+            System.out.println(Kundendaten[KundNmr-1][0]);
+            if (Kundendaten[KundNmr-1][0] == null) {
               KundNmr = 0;
               System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
             } // end of if
           } // end of if-else
         } while (KundNmr == 0); // end of do-while
         
-        String strI = Integer.toString(KundNmr);
+        String strI = Integer.toString(KundNmr-1);
         Buchungsdaten[wohnungswahl][i] = strI;
       } // end of for 
       
