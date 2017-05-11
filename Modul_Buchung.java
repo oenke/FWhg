@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.*;
 /** PROGRAMMKOPF
   * Modul Buchung
   *
@@ -203,8 +204,36 @@ public class Modul_Buchung {
       } while (belegt == true); // end of do-while
       
       for (int i=anfangsdatum;i<=enddatum;i++ ) {
-        Buchungsdaten[wohnungswahl][i] = Kundennummerfehltnoch;
-      } // end of for
+        int KundNmr;
+        do {
+          System.out.println("\nBitte die Kundennummer eingeben."); 
+          System.out.println("\nZur Ausgabe aller Kunden einmal 0 eingeben.");
+          System.out.println("\nZum abbrechen des Programms 999 eingeben.");
+          KundNmr = Tastatur.liesInt();
+          if (KundNmr == 0) {
+            for (int t=0;t<50; t++) {
+            if (Kundendaten[t][0] != null) {
+              for (int k=0;k<3;k++) {
+                  System.out.println((t+1)+". "+Kundendaten[t][k]);
+                } // end of for
+                System.out.println("____________________");
+              } // end of if
+            } // end of for
+          }
+          else if (KundNmr==999) {
+            return; 
+          } // end of if-else
+          else {
+            if (Kundendaten[KundNmr][0] == null) {
+              KundNmr = 0;
+              System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
+            } // end of if
+          } // end of if-else
+        } while (KundNmr == 0); // end of do-while
+        
+        String strI = Integer.toString(KundNmr);
+        Buchungsdaten[wohnungswahl][i] = strI;
+      } // end of for 
       
       System.out.println("\nDruecken Sie 'e' zum beenden des Unterprogrammes.");
       System.out.println("Druecken Sie einen beliebigen Knopf zum wiederholen.");

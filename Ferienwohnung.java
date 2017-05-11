@@ -51,7 +51,7 @@ public class Ferienwohnung {
         // Kundendaten werden geladen....
         break;
         case 3:
-        Modul_Buchung.menu(jahr,Buchungsdaten);
+        Modul_Buchung.menu(jahr,Buchungsdaten, Kundendaten);
         break;
         case 4:
         // ->Modul_KPreisberechnung.main();
