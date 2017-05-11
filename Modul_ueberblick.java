@@ -4,7 +4,7 @@
   * 
   * Author: Nico Fischer, Lukas Wuestenhagen, Daniel Schoenke, Jony Nchamadi
   * AS-Projekt
-  * Programmbeschreibung: Verwaltungssystem für Ferienwohnungen  
+  * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen  
   * Modul zur Anzeige eines Ueberblicks der Auslastung und Einnahmen der Ferienwohnungen
   */ 
   
@@ -25,7 +25,7 @@ public class Modul_ueberblick {
       Buchungsdaten[i][0] = String.valueOf(i+1);
       for (int j=1; j < Buchungsdaten[0].length ; j++ ) {
         
-        if (Buchungsdaten[i][j].equals("1")) {
+        if (Buchungsdaten[i][j] != null) {
           
           x = x + 1;
           y = y + 1;
