@@ -5,7 +5,7 @@ import java.io.*;
   * 
   * Author: Nico Fischer, Lukas Wuestenhagen, Daniel Schoenke, Jony Nchamadi
   * AS-Projekt
-  * Programmbeschreibung: Verwaltungssystem für Ferienwohnungen  
+  * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen  
   * 
   */ 
 public class Modul_Update2 {

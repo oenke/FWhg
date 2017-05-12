@@ -31,7 +31,8 @@ public class Ferienwohnung {
     do{
       Modul_Update2.getDbANZ(dbANZ);
       Wohnung = dbANZ[0];
-      Buchungsdaten = null;
+      Buchungsdaten = new String[Wohnung][Datum];
+      umsaetze = new String[Wohnung][2];
       Modul_Update2.checkDB(jahr);
       Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
       System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
