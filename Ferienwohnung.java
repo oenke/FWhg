@@ -39,7 +39,7 @@ public class Ferienwohnung {
       System.out.println("2 - Erstellen,einsehen und bearbeiten von Kundendaten");
       System.out.println("3 - Buchung von Ferienwohnung");
       System.out.println("4 - Update aller Daten");
-      System.out.println("5 - Preisbearbeitung für Ferienwohnungen ");
+      System.out.println("5 - Preisbearbeitung fuer Ferienwohnungen ");
       System.out.println("6 - Jahr aendern");
       System.out.println("7 - Programm beenden");
       System.out.print("\nBitte geben sie ein Menuepunkt an, um fortzufahren : ");
