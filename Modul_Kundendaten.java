@@ -23,19 +23,19 @@ public class Modul_Kundendaten {
       for (int i=0;i<3;i++) {
         switch (i) {
           case  0: 
-            System.out.print("Bitte geben Sie den Vornamen ein: ");
-            Kundendaten[k][i] = Tastatur.liesString();
-            break;
+          System.out.print("Bitte geben Sie den Vornamen ein: ");
+          Kundendaten[k][i] = Tastatur.liesString();
+          break;
           case  1: 
-            System.out.print("Bitte geben Sie den Nachnamen ein: ");
-            Kundendaten[k][i] = Tastatur.liesString();
-            break;
+          System.out.print("Bitte geben Sie den Nachnamen ein: ");
+          Kundendaten[k][i] = Tastatur.liesString();
+          break;
           case  2: 
-            System.out.print("Bitte geben Sie die Adresse ein: ");
-            Kundendaten[k][i] = Tastatur.liesString();
-            break;
+          System.out.print("Bitte geben Sie die Adresse ein: ");
+          Kundendaten[k][i] = Tastatur.liesString();
+          break;
           default: 
-            
+          
         } // end of switch
       } // end of for
       
@@ -59,19 +59,19 @@ public class Modul_Kundendaten {
       for (int i=0;i<3;i++) {
         switch (i) {
           case  0: 
-            System.out.print("Bitte geben Sie den Vornamen ein: ");
-            Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
-            break;
+          System.out.print("Bitte geben Sie den Vornamen ein: ");
+          Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
+          break;
           case  1: 
-            System.out.print("Bitte geben Sie den Nachnamen ein: ");
-            Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
-            break;
+          System.out.print("Bitte geben Sie den Nachnamen ein: ");
+          Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
+          break;
           case  2: 
-            System.out.print("Bitte geben Sie die Adresse ein: ");
-            Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
-            break;
+          System.out.print("Bitte geben Sie die Adresse ein: ");
+          Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
+          break;
           default: 
-            
+          
         } // end of switch
       } // end of for 
     }
@@ -101,7 +101,7 @@ public class Modul_Kundendaten {
       } // end of if
     } // end of for
   }
-   
+  
   public static void menu(String[][] Kundendaten, int AnzahlKunden, int Eintrage) {  // Beginn der Hauptfunktion
     int Auswahl;
     //int AnzahlKunden = 50;
@@ -118,19 +118,19 @@ public class Modul_Kundendaten {
       
       switch (Auswahl) {
         case  1:
-          Modul_Kundendaten.KundenEingabe(Kundendaten,AnzahlKunden,Eintrage);
-          break;
+        Modul_Kundendaten.KundenEingabe(Kundendaten,AnzahlKunden,Eintrage);
+        break;
         case  2:
-          Modul_Kundendaten.KundenVeraender(Kundendaten,AnzahlKunden,Eintrage);
-          break;
+        Modul_Kundendaten.KundenVeraender(Kundendaten,AnzahlKunden,Eintrage);
+        break;
         case  3:
-          Modul_Kundendaten.AusgabeEinzel(Kundendaten,AnzahlKunden,Eintrage);
-          break;
+        Modul_Kundendaten.AusgabeEinzel(Kundendaten,AnzahlKunden,Eintrage);
+        break;
         case  4:
-          Modul_Kundendaten.AusgabeAlle(Kundendaten,AnzahlKunden,Eintrage);
-          break;
+        Modul_Kundendaten.AusgabeAlle(Kundendaten,AnzahlKunden,Eintrage);
+        break;
         default: 
-          System.out.println("\nKeine gueltige Eingabe!");
+        System.out.println("\nKeine gueltige Eingabe!");
       } // end of switch
     } while (Auswahl != 5); // end of do-while
     
