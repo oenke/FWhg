@@ -17,14 +17,14 @@ public class Modul_Buchung {
     
     do {
       /*while (fehler == false) { 
-        System.out.print("Bitte geben Sie das Jahr ein: "); //Schreibt den gegebenen Text 
-        jahr = Tastatur.liesInt(); //Setzt zahl1 auf den Ausgelesen Wert von der Tastatur
-        if (jahr >= 1582 && jahr <= 2499) {
-          fehler = true;
-        } // end of if
-        else {
-          System.out.print("Die Eingabe ist Falsch, bitte wiederholen.\n"); //Schreibt den gegebenen Text 
-        } // end of if-else
+      System.out.print("Bitte geben Sie das Jahr ein: "); //Schreibt den gegebenen Text 
+      jahr = Tastatur.liesInt(); //Setzt zahl1 auf den Ausgelesen Wert von der Tastatur
+      if (jahr >= 1582 && jahr <= 2499) {
+      fehler = true;
+      } // end of if
+      else {
+      System.out.print("Die Eingabe ist Falsch, bitte wiederholen.\n"); //Schreibt den gegebenen Text 
+      } // end of if-else
       } // end of while
       fehler = false;*/
       System.out.println("Jahr: " + jahr); //Schreibt den gegebenen Text
@@ -64,9 +64,9 @@ public class Modul_Buchung {
                 } // end of if-else
               } // end of if 
             } // end of if
-              else if (tag <= 28) {
-                   tagpasstzumonat = true;   
-              } // end of if-else
+            else if (tag <= 28) {
+              tagpasstzumonat = true;   
+            } // end of if-else
             break;
             case  3: 
             if (tag <= 31) {
@@ -141,24 +141,26 @@ public class Modul_Buchung {
         System.out.printf("%2d.%4d\n",monat,jahr); //Schreibt den gegebenen Text
       } // end of if-else
     } while (tagpasstzumonat == false); // end of do-while
-
+    
     GregorianCalendar beliebigesDatum = new GregorianCalendar(jahr,monat-1,tag,0,0,0);
     int kalendertag =  beliebigesDatum.get( Calendar.DAY_OF_YEAR );
-   
+    
     return kalendertag;
   } // end of datum  
   
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
   public static void menu(int jahr, String[][] Buchungsdaten, String [][] Kundendaten,String[][] fwohnungen,String[][] umsaetze) {  // Beginn der Hauptfunktion
     char Auswahl;
-    
-    System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
-    int wohnungswahl = Tastatur.liesInt()-1;
+    int wohnungswahl;
+    do{
+      System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
+      wohnungswahl = Tastatur.liesInt()-1;
+    }while(wohnungswahl >= 10 || wohnungswahl <= 1);
     int anfangsdatum,enddatum;
     boolean belegt = false; 
     
-  
+    
     
     do { 
       System.out.println("\nAnfangsdatum der Buchung bitte eingeben."); 
@@ -199,7 +201,7 @@ public class Modul_Buchung {
           double help = Double.parseDouble(umsaetze[wohnungswahl][1]) + gesamtpreis;
           umsaetze[wohnungswahl][1] = String.valueOf(help);
         }// end of if
-         
+        
       } // end of if-else
     } while (belegt == true); // end of do-while
     
@@ -211,8 +213,8 @@ public class Modul_Buchung {
       KundNmr = Tastatur.liesInt();
       if (KundNmr == 0) {
         for (int t=0;t<50; t++) {
-        if (Kundendaten[t][0] != null) {
-          for (int k=0;k<3;k++) {
+          if (Kundendaten[t][0] != null) {
+            for (int k=0;k<3;k++) {
               System.out.println((t+1)+". "+Kundendaten[t][k]);
             } // end of for
             System.out.println("____________________");
