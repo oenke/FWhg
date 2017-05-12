@@ -14,7 +14,7 @@ public class Modul_Update2 {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Modul um zu ueberpruefen ob Datei existiert, falls nicht diese anlegen
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  public static void checkDB(int jahr){           //Methodenkopf mit Parameterübergabe
+  public static void checkDB(int jahr){           //Methodenkopf mit Parameteruebergabe
     String data1 = "db/umsaetze_"+jahr+".txt";
     File f = new File(data1);                     //
     if(!f.exists()) {                             //Abfrage ob Datei nicht existiert
