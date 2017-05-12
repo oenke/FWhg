@@ -11,28 +11,20 @@ import java.util.*;
 public class Ferienwohnung {
   
   public static void main(String[] args) {
-    int wahl;
     Calendar cal = new GregorianCalendar();
-    int jahr = cal.get(Calendar.YEAR);
+    int wahl,jahr = cal.get(Calendar.YEAR);
     
-    int dbANZ[] = new int [3];    // 0 = FWHG
-    Modul_Update2.getDbANZ(dbANZ);
-    int AnzahlKunden = 50;  // Modul Kundendaten
-    int Eintrage = 3;
-    String Kundendaten [] [] = new String [AnzahlKunden][Eintrage]; // Modul Kundendaten ArrayParameter
+    final int AnzahlKunden = 50;  // Maximale Kundenanzahl
+    final int Eintrage = 3;       // Anzahl der Kundeninformationen
     
-    int Wohnung = dbANZ[0]; //Modul Buchungsdaten
+    int Wohnung = dbANZ[0]; //Anzahl der vorhandenen Wohnungen
     int Datum = 365; //Fuer jeden Tag eine Kundenummer
-    String Buchungsdaten[ ][ ] = new String[Wohnung][Datum];
     
-    String fwohnungen[][] = new String[Wohnung][3]; 
-    String umsaetze[][] = new String[Wohnung][2]; 
     
     do{
-      Modul_Update2.getDbANZ(dbANZ);
-      Wohnung = dbANZ[0];
-      Modul_Update2.checkDB(jahr);
-      Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
+      //Wohnung = dbANZ[0];
+      Modul_Update2.checkDB(jahr);                               //Aufruf der Methode checkDB, um zu ueberpruefen ob umsaetze Datei fuer Jahr existiert 
+      Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr); //Aufruf der Methode read, um die Arrays zu befuellen
       System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
       System.out.println("                    Sie befinden sich aktuell im Jahr "+jahr);
       System.out.println("\n1 - Uebersicht der Ferienwohnungen");
@@ -54,7 +46,7 @@ public class Ferienwohnung {
         Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
         break;
         case 3:
-          Modul_BuchungUebersicht.uebersicht(jahr,Buchungsdaten);    //Buchungsabfrage freie Plaetze
+        Modul_BuchungUebersicht.uebersicht(jahr,Buchungsdaten);    //Buchungsabfrage freie Plaetze
         break;
         case 4:
         Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten,fwohnungen,umsaetze);
