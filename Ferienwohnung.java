@@ -48,13 +48,13 @@ public class Ferienwohnung {
       
       switch (wahl) {
         case  1: 
-        Modul_ueberblick.uebersicht(Buchungsdaten);
+        Modul_ueberblick.uebersicht(Buchungsdaten, umsaetze);
         break;
         case  2: 
         Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
         break;
         case 3:
-        Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten);
+        Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten, fwohnungen);
         break;                          
         case 4:
         try{

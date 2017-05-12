@@ -10,16 +10,17 @@
   
 public class Modul_ueberblick {
   
-  public static void uebersicht(String Buchungsdaten[][]) {
+  public static void uebersicht(String Buchungsdaten[][], String umsaetze[][]) {
     
     String s;
     int x;
     int y = 0;
+    float z = 0;
     int auslas[] = new int[Buchungsdaten.length];
     
-    System.out.printf("%5s | %4s | %7s" , s="ID", s="Tage", s="Prozent");
-    System.out.printf("\n%s%s%s%s" , s="------",s,s,s);
-  
+    System.out.printf("%4s | %4s | %7s | %12s", s="ID", s="Tage", s="Prozent", s="Jahresumsatz");
+    System.out.printf("\n%s" , s="-------------------------------------");
+    
     for (int i=0; i < Buchungsdaten.length ; i++ ) {
       x = 0;
       Buchungsdaten[i][0] = String.valueOf(i+1);
@@ -30,19 +31,22 @@ public class Modul_ueberblick {
           x = x + 1;
           y = y + 1;
           
+          
         } // end of if
         
       } // end of for
       auslas[i] = x;
+      String abc = umsaetze[i][1];
+      z = z + Float.parseFloat(abc);
     }                     
     
     for (int i=0; i < auslas.length ; i++ ) {
       
-      System.out.printf("\n%5d | %4d | %3.2f %%" , (i+1), auslas[i], (((float)auslas[i]*100)/(float)(Buchungsdaten[0].length))) ;
+      System.out.printf("\n%4d | %4d | %5.2f %% | %8s Euro" , (i+1), auslas[i], (((float)auslas[i]*100)/(float)(Buchungsdaten[0].length)), umsaetze[i][1]) ;
       
     } // end of for
-    System.out.printf("\n%s%s%s%s" , s="------",s,s,s);
-    System.out.printf("\nGesamt| %4d | %3.2f %%" , y, (float)y*100/(float)(Buchungsdaten.length * Buchungsdaten[0].length));
+    System.out.printf("\n%s" , s="-------------------------------------");
+    System.out.printf("\nSumme| %4d | %5.2f %% | %6.2f Euro" , y, (float)y*100/(float)(Buchungsdaten.length * Buchungsdaten[0].length), z);
     
     System.out.printf("\n\n\n\n");
   }
