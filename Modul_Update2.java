@@ -25,7 +25,7 @@ public class Modul_Update2 {
           writer.write("0;");
           writer.newLine();                                                  //Neue Zeile anfangen
         }
-        writer.close();                                                      //Writer schließen
+        writer.close();                                                      //Writer schliessen
       }
       catch (IOException e) {
         e.printStackTrace();                                                 //Fehlerabfang bei Input/Output
@@ -36,7 +36,7 @@ public class Modul_Update2 {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Modul um die erste Zeile aus einer Textdatei zu lesen und zu speichern
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  public static void getDbANZ(int dbANZ[]){                      //Methodenkopf mit Parameterübergabe
+  public static void getDbANZ(int dbANZ[]){                      //Methodenkopf mit Parameteruebergabe
     String dataFwhg = "db/fwohnungen.txt";                       //Festlegen eines Dateipfades auf eine Variable
     BufferedReader br = null;                                    //Deklaration eines neuen Readers
     try {
