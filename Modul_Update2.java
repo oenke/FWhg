@@ -20,7 +20,7 @@ public class Modul_Update2 {
     if(!f.exists()) {                             //Abfrage ob Datei nicht existiert
       try {
         BufferedWriter writer = new BufferedWriter(new FileWriter(data1));   //BufferedWriter auf Datei erstellen
-        for (int i = 0; i < 10; i++) {                                       //For Schleife um Textdatei zu befüllen
+        for (int i = 0; i < 10; i++) {                                       //For Schleife um Textdatei zu befuellen
           writer.write((i+1)+";");                                           //Schreiben einer Zeile
           writer.write("0;");
           writer.newLine();                                                  //Neue Zeile anfangen
