@@ -1,3 +1,4 @@
+import java.util.*;
 /**
   *
   * Klasse: FS 63
@@ -11,7 +12,8 @@ public class Ferienwohnung {
   
   public static void main(String[] args) {
     int wahl;
-    int jahr = 2017;
+    Calendar cal = new GregorianCalendar();
+    int jahr = cal.get(Calendar.YEAR);
     
     int dbANZ[] = new int [3];    // 0 = FWHG
     Modul_Update2.getDbANZ(dbANZ);
@@ -26,21 +28,21 @@ public class Ferienwohnung {
     String fwohnungen[][] = new String[Wohnung][3]; 
     String umsaetze[][] = new String[Wohnung][2]; 
     
-    Modul_Update2.checkDB(jahr);
     do{
       Modul_Update2.getDbANZ(dbANZ);
       Wohnung = dbANZ[0];
+      Buchungsdaten = null;
+      Modul_Update2.checkDB(jahr);
       Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
       System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
       System.out.println("                    Sie befinden sich aktuell im Jahr "+jahr);
       System.out.println("\n1 - Uebersicht der Ferienwohnungen");
       System.out.println("2 - Erstellen,einsehen und bearbeiten von Kundendaten");
       System.out.println("3 - Buchung von Ferienwohnung");
-      System.out.println("4 - Preisberechnung (Kunden)");
-      System.out.println("5 - Update aller Daten");
-      System.out.println("6 - Preisbearbeitung für Ferienwohnungen ");
-      System.out.println("7 - Jahr aendern");
-      System.out.println("8 - Programm beenden");
+      System.out.println("4 - Update aller Daten");
+      System.out.println("5 - Preisbearbeitung für Ferienwohnungen ");
+      System.out.println("6 - Jahr aendern");
+      System.out.println("7 - Programm beenden");
       System.out.print("\nBitte geben sie ein Menuepunkt an, um fortzufahren : ");
       wahl = Tastatur.liesInt();
       
@@ -52,12 +54,9 @@ public class Ferienwohnung {
         Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
         break;
         case 3:
-        Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten,fwohnungen);
-        break;
+        Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten);
+        break;                          
         case 4:
-        // ->Modul_KPreisberechnung.main();
-        break;                             
-        case 5:
         try{
           Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
           Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
@@ -67,15 +66,15 @@ public class Ferienwohnung {
           System.out.println("Es ist ein Fehler beim Aktualisieren der Daten aufgetreten!");
         }
         break;
-        case 6:
+        case 5:
         fwohnungen = Modul_FwhgAendern.aendern(fwohnungen);
         break;
-        case 7:
+        case 6:
         System.out.println("Welches Jahr wollen Sie verwenden? ");
         System.out.print("Jahr: ");
         jahr = Tastatur.liesInt();
         break;
-        case 8:
+        case 7:
         System.out.println( "Das Programm wird beendet...");
         break;
         default:
@@ -83,7 +82,7 @@ public class Ferienwohnung {
         
       } 
       Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
-    }while(wahl != 8);  
+    }while(wahl != 7);  
     
   } 
 }

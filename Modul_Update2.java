@@ -1,4 +1,13 @@
 import java.io.*;
+/**
+  *
+  * Klasse: FS 63
+  * 
+  * Author: Nico Fischer, Lukas Wuestenhagen, Daniel Schoenke, Jony Nchamadi
+  * AS-Projekt
+  * Programmbeschreibung: Verwaltungssystem für Ferienwohnungen  
+  * 
+  */ 
 public class Modul_Update2 {
   public static void checkDB(int jahr){
     String data1 = "db/umsaetze_"+jahr+".txt";
