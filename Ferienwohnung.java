@@ -37,11 +37,12 @@ public class Ferienwohnung {
       System.out.println("                    Sie befinden sich aktuell im Jahr "+jahr);
       System.out.println("\n1 - Uebersicht der Ferienwohnungen");
       System.out.println("2 - Erstellen,einsehen und bearbeiten von Kundendaten");
-      System.out.println("3 - Buchung von Ferienwohnung");
-      System.out.println("4 - Update aller Daten");
-      System.out.println("5 - Preisbearbeitung fuer Ferienwohnungen ");
-      System.out.println("6 - Jahr aendern");
-      System.out.println("7 - Programm beenden");
+      System.out.println("3 - Belegungsabfrage");
+      System.out.println("4 - Buchung von Ferienwohnung");
+      System.out.println("5 - Update aller Daten");
+      System.out.println("6 - Preisbearbeitung fuer Ferienwohnungen ");
+      System.out.println("7 - Jahr aendern");
+      System.out.println("8 - Programm beenden");
       System.out.print("\nBitte geben sie ein Menuepunkt an, um fortzufahren : ");
       wahl = Tastatur.liesInt();
       
@@ -53,9 +54,12 @@ public class Ferienwohnung {
         Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
         break;
         case 3:
+              //Buchungsabfrage freie Plaetze
+        break;
+        case 4:
         Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten,fwohnungen,umsaetze);
         break;                          
-        case 4:
+        case 5:
         try{
           Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
           Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
@@ -65,27 +69,27 @@ public class Ferienwohnung {
           System.out.println("Es ist ein Fehler beim Aktualisieren der Daten aufgetreten!");
         }
         break;
-        case 5:
+        case 6:
         Modul_FwhgAendern.aendern(fwohnungen);
         break;
-        case 6:
+        case 7:
         System.out.println("Welches Jahr wollen Sie verwenden? ");
         System.out.print("Jahr: ");
         jahr = Tastatur.liesInt();     
         Buchungsdaten = new String[Wohnung][Datum];
         umsaetze = new String[Wohnung][2];
         break;
-        case 7:
+        case 8:
         System.out.println( "Das Programm wird beendet...");
         break;
         default:
         System.out.println("Fehleingabe");
         
       }
-      if (wahl != 6) {
+      if (wahl != 7) {
         Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
       } // end of if
-    }while(wahl != 7);  
+    }while(wahl != 8);  
     
   } 
 }
