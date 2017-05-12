@@ -73,8 +73,15 @@ public class Ferienwohnung {
         break;
         case 7:
         System.out.println("Welches Jahr wollen Sie verwenden? ");
-        System.out.print("Jahr: ");
-        jahr = Tastatur.liesInt();     
+        do{
+          System.out.print("Jahr: ");
+          jahr = Tastatur.liesInt();
+          if (jahr < 1970 || jahr > 2050) {
+            System.out.println("\nFehleingabe!");
+            System.out.println("Es werden nur Jahreszahlen zwischen 1970 und 2050 unterstuetzt!");
+            System.out.println("Wiederholen Sie bitte Ihre eingabe!");
+          } // end of if
+        }while(jahr < 1970 || jahr > 2050);     
         Buchungsdaten = new String[Wohnung][Datum];
         umsaetze = new String[Wohnung][2];
         break;
