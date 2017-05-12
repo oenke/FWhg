@@ -150,7 +150,7 @@ public class Modul_Buchung {
   
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  public static void menu(int jahr, String[][] Buchungsdaten, String [][] Kundendaten,String[][] fwohnungen) {  // Beginn der Hauptfunktion
+  public static void menu(int jahr, String[][] Buchungsdaten, String [][] Kundendaten,String[][] fwohnungen,String[][] umsaetze) {  // Beginn der Hauptfunktion
     char Auswahl;
     
     System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
@@ -158,7 +158,7 @@ public class Modul_Buchung {
     int anfangsdatum,enddatum;
     boolean belegt = false; 
     
-    String umsaetze [] = new String [10];
+  
     
     do { 
       System.out.println("\nAnfangsdatum der Buchung bitte eingeben."); 
@@ -196,7 +196,7 @@ public class Modul_Buchung {
         if (Wahlo != 'j') {
           return;
         }else{
-          umsaetze[wohnungswahl] = umsaetze[wohnungswahl] + gesamtpreis;
+          umsaetze[wohnungswahl][1] = umsaetze[wohnungswahl][1] + gesamtpreis;
         }// end of if
          
       } // end of if-else

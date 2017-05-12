@@ -53,7 +53,7 @@ public class Ferienwohnung {
         Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
         break;
         case 3:
-        Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten, fwohnungen);
+        Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten,fwohnungen,umsaetze);
         break;                          
         case 4:
         try{
