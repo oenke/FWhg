@@ -14,14 +14,21 @@ public class Ferienwohnung {
     Calendar cal = new GregorianCalendar();
     int wahl,jahr = cal.get(Calendar.YEAR);
     
+    int dbANZ[] = new int [3];    // Array fuer Fixe Anzahlen
+    Modul_Update2.getDbANZ(dbANZ);   //Anzahl Array befuellen
     final int AnzahlKunden = 50;  // Maximale Kundenanzahl
     final int Eintrage = 3;       // Anzahl der Kundeninformationen
+    String Kundendaten [] [] = new String [AnzahlKunden][Eintrage]; // Array fuer die Kundendaten 1. Dimension KundenID 2. Dimension Kundeninfos
     
     int Wohnung = dbANZ[0]; //Anzahl der vorhandenen Wohnungen
     int Datum = 365; //Fuer jeden Tag eine Kundenummer
+    String Buchungsdaten[ ][ ] = new String[Wohnung][Datum];   //Array fuer die Buchungsdaten 1. Dimension WohnungsID 2. Dimension Gebuchter Tag mit Kundennummer
     
+    String fwohnungen[][] = new String[Wohnung][3];            //Array fuer die Wohnungen 1. Dimension WohnungsID 2. Dimension Informationen d. Wohnungen
+    String umsaetze[][] = new String[Wohnung][2];              //Array fuer die Umsaetze 1. Dimension WohnungsID 2. Dimension Umsatz
     
     do{
+      // Modul_Update2.getDbANZ(dbANZ);                          //Aufruf der Methode getDbANZ um das Anzahl Array zu befuellen
       //Wohnung = dbANZ[0];
       Modul_Update2.checkDB(jahr);                               //Aufruf der Methode checkDB, um zu ueberpruefen ob umsaetze Datei fuer Jahr existiert 
       Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr); //Aufruf der Methode read, um die Arrays zu befuellen
