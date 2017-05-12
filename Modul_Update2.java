@@ -5,37 +5,45 @@ import java.io.*;
   * 
   * Author: Nico Fischer, Lukas Wuestenhagen, Daniel Schoenke, Jony Nchamadi
   * AS-Projekt
-  * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen  
+  * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen
+  * Modul: Update
+  * Modulbeschreibung: Lesen, Schreiben und Erstellen von Daten in Textdateien  
   * 
   */ 
 public class Modul_Update2 {
-  public static void checkDB(int jahr){
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //Modul um zu ueberpruefen ob Datei existiert, falls nicht diese anlegen
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  public static void checkDB(int jahr){           //Methodenkopf mit Parameterübergabe
     String data1 = "db/umsaetze_"+jahr+".txt";
-    File f = new File(data1);
-    if(!f.exists()) { 
+    File f = new File(data1);                     //
+    if(!f.exists()) {                             //Abfrage ob Datei nicht existiert
       try {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(data1));
-        for (int i = 0; i < 10; i++) {
-          writer.write((i+1)+";");
+        BufferedWriter writer = new BufferedWriter(new FileWriter(data1));   //BufferedWriter auf Datei erstellen
+        for (int i = 0; i < 10; i++) {                                       //For Schleife um Textdatei zu befüllen
+          writer.write((i+1)+";");                                           //Schreiben einer Zeile
           writer.write("0;");
-          writer.newLine(); 
+          writer.newLine();                                                  //Neue Zeile anfangen
         }
-        writer.close();
+        writer.close();                                                      //Writer schließen
       }
       catch (IOException e) {
-        e.printStackTrace();
+        e.printStackTrace();                                                 //Fehlerabfang bei Input/Output
       }
-    }
-    
+    } 
   }
-  public static void getDbANZ(int dbANZ[]){
-    String dataFwhg = "db/fwohnungen.txt";
-    BufferedReader br = null;
+  
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Modul um die erste Zeile aus einer Textdatei zu lesen und zu speichern
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  public static void getDbANZ(int dbANZ[]){                      //Methodenkopf mit Parameterübergabe
+    String dataFwhg = "db/fwohnungen.txt";                       //Festlegen eines Dateipfades auf eine Variable
+    BufferedReader br = null;                                    //Deklaration eines neuen Readers
     try {
-      br = new BufferedReader(new FileReader(new File(dataFwhg)));
-      String line = null;
-      line = br.readLine();
-      dbANZ[0] = Integer.valueOf(line);
+      br = new BufferedReader(new FileReader(new File(dataFwhg)));                                //Reader auf eine Datei setzen
+      String line = null;                                                                         //Stringvariable initialisieren
+      line = br.readLine();                                                                       //Variable line auf Zeile 1 setzen
+      dbANZ[0] = Integer.valueOf(line);                                                           //Speichern des Textes in einem Array
     } catch(FileNotFoundException e) {
       e.printStackTrace();
     } catch(IOException e) {
@@ -43,7 +51,9 @@ public class Modul_Update2 {
     }
     
   }
-  
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Modul um alle Textdateien in Arrays zu lesen
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   public static void read(String fwhg[][],String kdata[][],String bdata[][],String umsaetze[][],int jahr){
     String dataFwhg = "db/fwohnungen.txt", dataKunden = "db/kundendaten.txt", dataBuchung = "db/buchungsdaten_"+jahr+".txt", dataUmsaetze = "db/umsaetze_"+jahr+".txt";
     BufferedReader br = null;
@@ -116,8 +126,9 @@ public class Modul_Update2 {
     }  
     
   }
-  
-  
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Modul um die Arrays in Textdateien zu schreiben
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   public static void write(String fwhg[][],String kdata[][],String bdata[][],String umsaetze[][],int jahr){
     String dataFwhg = "db/fwohnungen.txt", dataKunden = "db/kundendaten.txt", dataBuchung = "db/buchungsdaten_"+jahr+".txt",dataUmsaetze = "db/umsaetze_"+jahr+".txt";
     try {
