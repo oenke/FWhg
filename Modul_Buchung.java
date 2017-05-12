@@ -196,7 +196,8 @@ public class Modul_Buchung {
         if (Wahlo != 'j') {
           return;
         }else{
-          umsaetze[wohnungswahl][1] = umsaetze[wohnungswahl][1] + gesamtpreis;
+          double help = Double.parseDouble(umsaetze[wohnungswahl][1]) + gesamtpreis;
+          umsaetze[wohnungswahl][1] = String.valueOf(help);
         }// end of if
          
       } // end of if-else
