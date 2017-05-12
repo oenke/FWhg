@@ -66,7 +66,7 @@ public class Ferienwohnung {
         }
         break;
         case 5:
-        fwohnungen = Modul_FwhgAendern.aendern(fwohnungen);
+        Modul_FwhgAendern.aendern(fwohnungen);
         break;
         case 6:
         System.out.println("Welches Jahr wollen Sie verwenden? ");
