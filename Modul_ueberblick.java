@@ -42,7 +42,7 @@ public class Modul_ueberblick {
     
     for (int i=0; i < auslas.length ; i++ ) {
       
-      System.out.printf("\n%4d | %4d | %5.2f %% | %8s Euro" , (i+1), auslas[i], (((float)auslas[i]*100)/(float)(Buchungsdaten[0].length)), umsaetze[i][1]) ;
+      System.out.printf("\n%4d | %4d | %5.2f %% | %6.2f Euro" , (i+1), auslas[i], (((float)auslas[i]*100)/(float)(Buchungsdaten[0].length)), Float.parseFloat(umsaetze[i][1])) ;
       
     } // end of for
     System.out.printf("\n%s" , s="-------------------------------------");
