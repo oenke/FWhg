@@ -5,7 +5,7 @@ import java.util.*;
   * 
   * Author: Nico Fischer, Lukas Wuestenhagen, Daniel Schoenke, Jony Nchamadi
   * AS-Projekt
-  * Programmbeschreibung: Verwaltungssystem für Ferienwohnungen  
+  * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen  
   * 
   */ 
 public class Ferienwohnung {
@@ -31,8 +31,6 @@ public class Ferienwohnung {
     do{
       Modul_Update2.getDbANZ(dbANZ);
       Wohnung = dbANZ[0];
-      Buchungsdaten = new String[Wohnung][Datum];
-      umsaetze = new String[Wohnung][2];
       Modul_Update2.checkDB(jahr);
       Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
       System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
@@ -73,7 +71,9 @@ public class Ferienwohnung {
         case 6:
         System.out.println("Welches Jahr wollen Sie verwenden? ");
         System.out.print("Jahr: ");
-        jahr = Tastatur.liesInt();
+        jahr = Tastatur.liesInt();     
+        Buchungsdaten = new String[Wohnung][Datum];
+        umsaetze = new String[Wohnung][2];
         break;
         case 7:
         System.out.println( "Das Programm wird beendet...");
@@ -81,8 +81,10 @@ public class Ferienwohnung {
         default:
         System.out.println("Fehleingabe");
         
-      } 
-      Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
+      }
+      if (wahl != 6) {
+        Modul_Update2.write(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr);
+      } // end of if
     }while(wahl != 7);  
     
   } 
