@@ -113,7 +113,7 @@ public class Modul_Kundendaten {
       System.out.println("2 - Zum Veraendern von Kundendaten.");
       System.out.println("3 - Fuer Ausgabe eines bestimmter Kundendaten.");
       System.out.println("4 - Fuer die Ausgabe aller Kundendaten.");
-      System.out.println("5 - Zurückkehren zum Hauptprogramm.");
+      System.out.println("5 - Zurueckkehren zum Hauptprogramm.");
       Auswahl = Tastatur.liesInt(); 
       
       switch (Auswahl) {
