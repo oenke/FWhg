@@ -4,8 +4,14 @@
   * 
   * Author: Nico Fischer, Lukas Wuestenhagen, Daniel Schoenke, Jony Nchamadi
   * AS-Projekt
-  * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen  
+  * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen 
   * 
+  * Modul_FhwgAendern by Daniel Schoenke
+  * Dieses Modul bietet die Moeglichkeit den Tagespreis bzw. die Groesse einer Ferienwohnung zu aendern.
+  * Am Anfang wird dazu als Uebersicht eine Tabelle der Wohnung mit Tagespreisen und Groesse ausgegeben.
+  * Anschliessend hat der Benutzer die Moeglichkeit eine Wohnung auszuwaehlen und anzupassen.
+  * Fehleingabe wie eine falsche ID, negative Preise und Groessen werden abgefange.
+  *
   */ 
 
 public class Modul_FwhgAendern {
@@ -30,7 +36,7 @@ public class Modul_FwhgAendern {
       
     } // end of for
     
-    //Abfangen von Fehleingaben und setzen neuer Werte
+    //Schleife zum Abfangen von Fehleingaben und setzen neuer Werte
     boolean wdh = false;
     do {
       wdh = false;
@@ -39,30 +45,29 @@ public class Modul_FwhgAendern {
       
       wahl = (Tastatur.liesInt() -1);
       float x;
-      if (wahl >= 0 && wahl < 10) {
+      if (wahl >= 0 && wahl < 10) { //Abfangen falscher Wohnungs-ID
         do {
           x = 0;
           wdh = false;
           System.out.println("Geben Sie bitte den neuen Preis ein: "); 
           x = Tastatur.liesFloat();
-          wdh = Modul_FwhgAendern.fehler(x);
+          wdh = Modul_FwhgAendern.fehler(x); //Abfangen der Eingabe einer negativen Zahl
         } while (wdh==true); // end of do-while
-        
-        fwhg[wahl][1] = String.valueOf(x);
+         fwhg[wahl][1] = String.valueOf(x); //Setzen des neunen Werts
+		 
         do {
           x = 0;
           wdh = false;
           System.out.println("Geben Sie bitte die neue Groesse ein: ");
           x = Tastatur.liesFloat();
-          wdh = Modul_FwhgAendern.fehler(x);
+          wdh = Modul_FwhgAendern.fehler(x); //Abfangen der Eingabe einer negativen Zahl
         } while (wdh==true); // end of do-while 
-        fwhg[wahl][2] = String.valueOf(x);
+        fwhg[wahl][2] = String.valueOf(x); //Setzen des neunen Werts
         
       } // end of if
       
-      else if (wahl < 0) {
+      else if (wahl < 0) { //Programm laueft "normal" weiter
       }
-      
       else {
         
         System.out.println("Fehler bei der Eingabe, bitte versuchen Sie es erneut.");
