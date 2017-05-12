@@ -54,7 +54,7 @@ public class Ferienwohnung {
         Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
         break;
         case 3:
-              //Buchungsabfrage freie Plaetze
+          Modul_BuchungUebersicht.uebersicht(jahr,Buchungsdaten);    //Buchungsabfrage freie Plaetze
         break;
         case 4:
         Modul_Buchung.menu(jahr,Buchungsdaten,Kundendaten,fwohnungen,umsaetze);

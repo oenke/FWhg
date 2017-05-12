@@ -10,7 +10,7 @@ import java.util.*;
   PROGRAMMKOPF ENDE*/
 
 public class Modul_BuchungUebersicht { 
-  public static void menu(int jahr, String[][] Buchungsdaten) {  // Beginn der Hauptfunktion
+  public static void uebersicht(int jahr, String[][] Buchungsdaten) {  // Beginn der Hauptfunktion
     char Auswahl;
     
     int anfangsdatum,dauer;
