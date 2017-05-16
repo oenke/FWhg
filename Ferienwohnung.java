@@ -32,7 +32,7 @@ public class Ferienwohnung {
       //Wohnung = dbANZ[0];
       Modul_Update2.checkDB(jahr);                               //Aufruf der Methode checkDB, um zu ueberpruefen ob umsaetze Datei fuer Jahr existiert 
       Modul_Update2.read(fwohnungen,Kundendaten,Buchungsdaten,umsaetze,jahr); //Aufruf der Methode read, um die Arrays zu befuellen
-      System.out.println("____________________Managementsystem fuer Ferienwohnungen_______________________");
+      System.out.println("\n____________________Managementsystem fuer Ferienwohnungen_______________________");
       System.out.println("                    Sie befinden sich aktuell im Jahr "+jahr);
       System.out.println("\n1 - Uebersicht der Ferienwohnungen");
       System.out.println("2 - Erstellen,einsehen und bearbeiten von Kundendaten");
@@ -50,7 +50,7 @@ public class Ferienwohnung {
         Modul_ueberblick.uebersicht(Buchungsdaten, umsaetze);
         break;
         case  2: 
-        Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage);
+        Modul_Kundendaten.menu(Kundendaten, AnzahlKunden, Eintrage,Buchungsdaten);
         break;
         case 3:
         Modul_BuchungUebersicht.uebersicht(jahr,Buchungsdaten);    //Buchungsabfrage freie Plaetze
