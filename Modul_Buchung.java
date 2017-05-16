@@ -47,7 +47,7 @@ public class Modul_Buchung {
             System.out.println("\nDie Wohnung ist am " + i + " schon belegt. Anderes Datum waehlen.");
           } // end of if
         } // end of for
-        System.out.println("\n" + gesamttag + " Tage wurden gebucht.");
+        System.out.println("\n" + gesamttag + " Naechte wurden gebucht.");
         
         int foo = Integer.valueOf(fwohnungen[wohnungswahl][1]);
         double gesamtpreis = Modul_Preisberechnung.berechnung(gesamttag,foo); //PREISBERECHNUNG
@@ -93,7 +93,7 @@ public class Modul_Buchung {
     
     for (int i=anfangsdatum;i<=enddatum;i++ ) {  
       String strI = Integer.toString(KundNmr-1);
-      Buchungsdaten[wohnungswahl][i] = strI;
+      Buchungsdaten[wohnungswahl][(i-1)] = strI;
     } // end of for 
   } // Ender der Hauptfunktion
 } // end of class EAngestellte
