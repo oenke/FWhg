@@ -45,7 +45,7 @@ public class Modul_Buchung {
       else {
         int gesamttag = enddatum - anfangsdatum;                                                                          //Dauer der gesamten Buchung
         for (int i=anfangsdatum;i<=enddatum;i++ ) {
-          if (Buchungsdaten[wohnungswahl][i] != null) {
+          if (Buchungsdaten[wohnungswahl][i-1] != null) {
             belegt = true;                                                                                                //Ueberpruefung ob Enddatum schon belegt ist
             System.out.println("\nDie Wohnung ist am " + i + ". Tag schon belegt. Anderes Datum bitte waehlen.");         //ansonsten belegt und Datumeingabe wiederholen
           } // end of if
@@ -94,10 +94,10 @@ public class Modul_Buchung {
         } // end of if
       } // end of if-else
     } while (KundNmr == 0); // end of do-while
-    System.out.println("Für " + Kundendaten[KundNmr][0] + " " + Kundendaten[KundNmr][1] + " wurde die Wohnung " + (wohnungswahl) + " gebucht.");
+    System.out.println("Fï¿½r " + Kundendaten[KundNmr][0] + " " + Kundendaten[KundNmr][1] + " wurde die Wohnung " + (wohnungswahl) + " gebucht.");
     for (int i=anfangsdatum;i<=enddatum;i++ ) {  
       String strI = Integer.toString(KundNmr);                                                                            //Umwandlung des Integers der Kundennummer in eines Strings zur Speicherung
-      Buchungsdaten[wohnungswahl][i] = strI;                                                                              //Sicherung in den Buchungsdaten
+      Buchungsdaten[wohnungswahl][i-1] = strI;                                                                              //Sicherung in den Buchungsdaten
     } // end of for 
   } // Ender der Hauptfunktion
 } // end of class EAngestellte
