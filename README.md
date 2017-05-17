@@ -6,11 +6,8 @@ Erstellung eines Verwaltungsporgrammes für Ferienwohnungen mit Textdateispeiche
 ## Projekt Team
 
 Lukas
-
 Daniel
-
 Jony
-
 Nico
 
 ### Code Snippet
