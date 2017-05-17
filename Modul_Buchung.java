@@ -45,13 +45,13 @@ public class Modul_Buchung {
       else {
         int gesamttag = enddatum - anfangsdatum;                                                                          //Dauer der gesamten Buchung
         for (int i=anfangsdatum;i<=enddatum;i++ ) {
-          if (Buchungsdaten[wohnungswahl][i] != null) {
-            belegt = true;                                                                                                //Überprüfung ob Enddatum schon belegt ist
+          if (Buchungsdaten[wohnungswahl][(i-1)] != null) {
+            belegt = true;                                                                                                //Ueberpruefung ob Enddatum schon belegt ist
             System.out.println("\nDie Wohnung ist am " + i + ". Tag schon belegt. Anderes Datum bitte waehlen.");         //ansonsten belegt und Datumeingabe wiederholen
           } // end of if
         } // end of for
         if (belegt == false) {
-          System.out.println("\n" + gesamttag + " Tage werden gebucht.");                                                  //Ausgabe wieviele Tage gebucht wurden
+          System.out.println("\n" + gesamttag + " Naechte werden gebucht.");                                                  //Ausgabe wieviele Tage gebucht wurden
           
           int preis = Integer.valueOf(fwohnungen[wohnungswahl][1]);                                                        //String als Integer vom Preis der Wohnung
           double gesamtpreis = Modul_Preisberechnung.berechnung(gesamttag,preis); //PREISBERECHNUNG
@@ -88,7 +88,7 @@ public class Modul_Buchung {
       } // end of if-else
       else {
         if (KundNmr < 0 || Kundendaten[KundNmr-1][0] == null ) {
-          KundNmr = 0;                                                                                                     //Bei ungültiger Kundenummer wird die Eingabe wiederholt, wenn z.B. Kunde nicht vorhanden ist
+          KundNmr = 0;                                                                                                     //Bei ungueltiger Kundenummer wird die Eingabe wiederholt, wenn z.B. Kunde nicht vorhanden ist
           System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
         } // end of if
       } // end of if-else
@@ -96,7 +96,9 @@ public class Modul_Buchung {
     System.out.println("Für " + Kundendaten[KundNmr-1][0] + " " + Kundendaten[KundNmr-1][1] + " wurde die Wohnung " + (wohnungswahl) + " gebucht.");
     for (int i=anfangsdatum;i<=enddatum;i++ ) {  
       String strI = Integer.toString(KundNmr);                                                                            //Umwandlung des Integers der Kundennummer in eines Strings zur Speicherung
-      Buchungsdaten[wohnungswahl][i] = strI;                                                                              //Sicherung in den Buchungsdaten
+      Buchungsdaten[wohnungswahl][(i-1)] = strI;                                                                              //Sicherung in den Buchungsdaten
     } // end of for 
   } // Ender der Hauptfunktion
 } // end of class EAngestellte
+
+
