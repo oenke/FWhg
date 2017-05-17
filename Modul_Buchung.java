@@ -18,7 +18,7 @@ public class Modul_Buchung {
     int wohnungswahl;
     do{
       System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
-      wohnungswahl = Tastatur.liesInt();
+      wohnungswahl = Tastatur.liesInt()-1;
     }while(wohnungswahl > 9 || wohnungswahl < 0);
     int anfangsdatum,enddatum;
     boolean belegt = false; 
@@ -45,7 +45,7 @@ public class Modul_Buchung {
       else {
         int gesamttag = enddatum - anfangsdatum;                                                                          //Dauer der gesamten Buchung
         for (int i=anfangsdatum;i<=enddatum;i++ ) {
-          if (Buchungsdaten[wohnungswahl][i-1] != null) {
+          if (Buchungsdaten[wohnungswahl][i] != null) {
             belegt = true;                                                                                                //Ueberpruefung ob Enddatum schon belegt ist
             System.out.println("\nDie Wohnung ist am " + i + ". Tag schon belegt. Anderes Datum bitte waehlen.");         //ansonsten belegt und Datumeingabe wiederholen
           } // end of if
@@ -73,7 +73,7 @@ public class Modul_Buchung {
       System.out.println("Zum abbrechen des Programms <999> eingeben."); 
       System.out.print("\nBitte die Kundennummer eingeben:");                                                             //Eingabe der KundenID
       
-      KundNmr = Tastatur.liesInt();
+      KundNmr = Tastatur.liesInt()-1;
       if (KundNmr == 0) {
         for (int t=0;t<50; t++) {
           if (Kundendaten[t][0] != null) {
@@ -88,16 +88,16 @@ public class Modul_Buchung {
         return;                                                                                                            //Bricht das Buchungs Modul ab
       } // end of if-else
       else {
-        if (KundNmr < 0 || Kundendaten[KundNmr-1][0] == null ) {
+        if (KundNmr < 0 || Kundendaten[KundNmr][0] == null ) {
           KundNmr = 0;                                                                                                     //Bei ungueltiger Kundenummer wird die Eingabe wiederholt, wenn z.B. Kunde nicht vorhanden ist
           System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
         } // end of if
       } // end of if-else
     } while (KundNmr == 0); // end of do-while
-    System.out.println("Für " + Kundendaten[KundNmr-1][0] + " " + Kundendaten[KundNmr-1][1] + " wurde die Wohnung " + (wohnungswahl) + " gebucht.");
+    System.out.println("Für " + Kundendaten[KundNmr][0] + " " + Kundendaten[KundNmr][1] + " wurde die Wohnung " + (wohnungswahl) + " gebucht.");
     for (int i=anfangsdatum;i<=enddatum;i++ ) {  
       String strI = Integer.toString(KundNmr);                                                                            //Umwandlung des Integers der Kundennummer in eines Strings zur Speicherung
-      Buchungsdaten[wohnungswahl][i-1] = strI;                                                                              //Sicherung in den Buchungsdaten
+      Buchungsdaten[wohnungswahl][i] = strI;                                                                              //Sicherung in den Buchungsdaten
     } // end of for 
   } // Ender der Hauptfunktion
 } // end of class EAngestellte
