@@ -46,7 +46,7 @@ public class Modul_Buchung {
         int gesamttag = enddatum - anfangsdatum;                                                                          //Dauer der gesamten Buchung
         for (int i=anfangsdatum;i<=enddatum;i++ ) {
           if (Buchungsdaten[wohnungswahl][i-1] != null) {
-            belegt = true;                                                                                                //Überprüfung ob Enddatum schon belegt ist
+            belegt = true;                                                                                                //Ueberpruefung ob Enddatum schon belegt ist
             System.out.println("\nDie Wohnung ist am " + i + ". Tag schon belegt. Anderes Datum bitte waehlen.");         //ansonsten belegt und Datumeingabe wiederholen
           } // end of if
         } // end of for
@@ -89,7 +89,7 @@ public class Modul_Buchung {
       } // end of if-else
       else {
         if (KundNmr < 0 || Kundendaten[KundNmr-1][0] == null ) {
-          KundNmr = 0;                                                                                                     //Bei ungültiger Kundenummer wird die Eingabe wiederholt, wenn z.B. Kunde nicht vorhanden ist
+          KundNmr = 0;                                                                                                     //Bei ungueltiger Kundenummer wird die Eingabe wiederholt, wenn z.B. Kunde nicht vorhanden ist
           System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
         } // end of if
       } // end of if-else
