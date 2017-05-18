@@ -130,7 +130,7 @@ public class Modul_Kundendaten {
         } // end of for
       } // end of for
       if (!Treffer) {
-        System.out.println("\nDer Kunde mit der ID: " + Eingabe + " hat bisher noch nichts gebucht.");                                  //Bei keinem Treffer wird nur die ID erneut ausgegeben
+        System.out.println("\nDer Kunde mit der ID: " + (Eingabe+1) + " hat bisher noch nichts gebucht.");                                  //Bei keinem Treffer wird nur die ID erneut ausgegeben
       } // end of if-else
     } // end of if
     else {
