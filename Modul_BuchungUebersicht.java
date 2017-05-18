@@ -23,7 +23,7 @@ public class Modul_BuchungUebersicht {
     } while (belegt == true); // end of do-while
     
     do {     
-      System.out.println("\nWie lange soll gebucht werden?."); 
+      System.out.print("\nWie lange soll gebucht werden? "); 
       dauer = Tastatur.liesInt();                                                                                             //Abfrage der Buchungsdauer
       belegt = false;
       boolean  allefrei = true;                                                                                              //Ueberpruefung ob alle Wohnungen frei sind
@@ -34,26 +34,25 @@ public class Modul_BuchungUebersicht {
       else { 
         int Belegatarray[]= new int [100];
         for (int i=0;i<Buchungsdaten.length ;i++ ) {
-          for (int k = anfangsdatum;k<Buchungsdaten[i].length ;k++ ) {
-            if (Buchungsdaten[i][k] != null && dauer > 0) {
-              dauer--;                                                                                                       //Eintragung der jewilig belegten Wohnung in einem Array
-              Belegatarray[i] = i;                                                                                           //Buchungsarry wird durchgegangen und nach belegten Wohnungen gesucht
+          for (int k = anfangsdatum;k<(anfangsdatum+dauer) ;k++ ) {
+            if (Buchungsdaten[i][k] != null && dauer > 0) {                                                                                         
+              Belegatarray[i] = i+1;                                                                                           //Eintragung der jewilig belegten Wohnung in einem Array, i+1 zur korrekten Ausgabe
             }
           } // end of for
         } // end of for
-        
+        System.out.println();  
         for (int i=0;i<Belegatarray.length ;i++ ) {
           if (Belegatarray[i] != 0) {
-            System.out.println("Wohnung " + Belegatarray[i] + " belegt.");
-            allefrei = false;                                                                                                //Ausgabe der belegten Wohnungen in diesem Zeitraum
+            System.out.println("Wohnung " + Belegatarray[i] + " belegt.");                                                   //Ausgabe der belegten Wohnungen in diesem Zeitraum
+            allefrei = false;                                                                                                //Variable wird false gesetzt da eine Wohnung belegt ist
           } // end of if
         } // end of for
         
         if (allefrei == false) {
-          System.out.println("Alle anderen Wohnungen sind in diesem Zeitraum frei.");                                    
+          System.out.println("Alle anderen Wohnungen sind in diesem Zeitraum frei.");                                        //Ausgabe falls mindestens eine Wohnung belegt ist
         } // end of if
         else {
-          System.out.println("Alle Wohnungen sind in diesem Zeitraum frei.");
+          System.out.println("Alle Wohnungen sind in diesem Zeitraum frei.");                                                //Ausgabe falls alle Wohnungen in dem Zeitraum frei sind
         } // end of if-else
       } // end of if-else
     } while (belegt == true); // end of do-while

@@ -94,7 +94,7 @@ public class Modul_Buchung {
         } // end of if
       } // end of if-else
     } while (KundNmr == 0); // end of do-while
-    System.out.println("F�r " + Kundendaten[KundNmr][0] + " " + Kundendaten[KundNmr][1] + " wurde die Wohnung " + (wohnungswahl) + " gebucht.");
+    System.out.println("Fuer " + Kundendaten[KundNmr][0] + " " + Kundendaten[KundNmr][1] + " wurde die Wohnung " + (wohnungswahl) + " gebucht."); //Ausgabe was gebucht wurde fuer welchen Kunden
     for (int i=anfangsdatum;i<=enddatum;i++ ) {  
       String strI = Integer.toString(KundNmr);                                                                            //Umwandlung des Integers der Kundennummer in eines Strings zur Speicherung
       Buchungsdaten[wohnungswahl][i-1] = strI;                                                                              //Sicherung in den Buchungsdaten
