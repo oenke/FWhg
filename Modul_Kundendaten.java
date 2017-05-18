@@ -23,19 +23,19 @@ public class Modul_Kundendaten {
       for (int i=0;i<3;i++) {
         switch (i) {                                                                         //Eingabe der relevanten Daten
           case  0: 
-          System.out.print("Bitte geben Sie den Vornamen ein: ");
-          Kundendaten[k][i] = Tastatur.liesString();                                         
-          break;
+            System.out.print("Bitte geben Sie den Vornamen ein: ");
+            Kundendaten[k][i] = Tastatur.liesString();                                         
+            break;
           case  1: 
-          System.out.print("Bitte geben Sie den Nachnamen ein: ");
-          Kundendaten[k][i] = Tastatur.liesString();
-          break;
+            System.out.print("Bitte geben Sie den Nachnamen ein: ");
+            Kundendaten[k][i] = Tastatur.liesString();
+            break;
           case  2: 
-          System.out.print("Bitte geben Sie die Adresse ein: ");
-          Kundendaten[k][i] = Tastatur.liesString();
-          break;
+            System.out.print("Bitte geben Sie die Adresse ein: ");
+            Kundendaten[k][i] = Tastatur.liesString();
+            break;
           default: 
-          
+            
         } // end of switch
       } // end of for
       
@@ -58,19 +58,19 @@ public class Modul_Kundendaten {
       for (int i=0;i<3;i++) {
         switch (i) {                                                                             //Eingabe der relevanten Daten
           case  0: 
-          System.out.print("Bitte geben Sie den Vornamen ein: ");
-          Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
-          break;
+            System.out.print("Bitte geben Sie den Vornamen ein: ");
+            Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
+            break;
           case  1: 
-          System.out.print("Bitte geben Sie den Nachnamen ein: ");
-          Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
-          break;
+            System.out.print("Bitte geben Sie den Nachnamen ein: ");
+            Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
+            break;
           case  2: 
-          System.out.print("Bitte geben Sie die Adresse ein: ");
-          Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
-          break;
+            System.out.print("Bitte geben Sie die Adresse ein: ");
+            Kundendaten[Ausgabewahl2][i] = Tastatur.liesString();
+            break;
           default: 
-          
+            
         } // end of switch
       } // end of for 
     }
@@ -103,21 +103,33 @@ public class Modul_Kundendaten {
   
   public static void BuchungDerKundenID(String[][] Kundendaten, int AnzahlKunden, int Eintrage, String[][] Buchungsdaten ) {  // Ueberpruefung der Buchungen eines Kunden mittels seiner ID
     System.out.print("Bitte geben Sie die KundenID ein: ");
-    int Eingabe = Tastatur.liesInt();
-    boolean Treffer = false;                                                                                                           //Bei einem Treffer zur Ausgabe verschiedener Texte
+    int Eingabe = Tastatur.liesInt() -1;
+    System.out.println("");//Leerzeile
+    boolean Treffer = false;
+    int helper = 0,helper2 = 0,whg=0;                                                                                                           //Bei einem Treffer zur Ausgabe verschiedener Texte
     if (Eingabe > 0 && Eingabe < AnzahlKunden) {
       for (int i=0;i<Buchungsdaten.length;i++ ) {
-        for (int k = 0;k<Buchungsdaten[i].length;k++ ) { 
+        for (int k = 0;k<Buchungsdaten[i].length;k++ ) {
+          if (Buchungsdaten[i][k] == null) {
+            helper = 0;                          //Reset der Zähler bei einem Leeren Arrayfeld
+            helper2 = 0;                          //Reset der Zähler bei einem Leeren Arrayfeld
+            whg=0;                                //Reset der Zähler bei einem Leeren Arrayfeld
+          } // end of if
           if (Buchungsdaten[i][k] != null && Integer.parseInt(Buchungsdaten[i][k]) == Eingabe ) {
-            System.out.println("Die Wohnung " + i + " am " + k + ". Tag.");                                                            //Durchlaufen des Zweidimensionalen Arrays nach Wohnungen und Tagen
-            Treffer = true;                                                                                                            //Bis eine KundenID gefunden wurde die mit der Eingabe passt, dann printen.
+            helper2 = helper2 + 1;         //Anfangstag bis zum Endtag hochzählen
+            if (helper == 0) {
+              helper = k + 1;       //Anfangstag setzen
+              helper2 = k + 1;     //Anfangstag setzen
+              whg = i+1;      //Welche Wohnung wurde gebucht ?
+            } // end of if       
+            Treffer = true;
+            if (Treffer && Buchungsdaten[i][(k+1)] == null ) {     //Wenn Treffer und das nächste Feld Leer ist ausgeben
+              System.out.println(Kundendaten[Eingabe][0] + " " + Kundendaten[Eingabe][1] + " hat die Wohnung "+whg+" vom Tag "+helper+" bis zum Tag "+helper2+" gebucht!");  //Ausgabe bei gebuchter Wohnung
+            } // end of if                                                                                                            //Bis eine KundenID gefunden wurde die mit der Eingabe passt, dann printen.
           }
         } // end of for
       } // end of for
-      if (Treffer) {
-        System.out.println("\nDiese Tage wurden vom Kunden "+ Kundendaten[Eingabe][0] + " " + Kundendaten[Eingabe][1] + " gebucht.");  //Bei einem Treffer wird der name geprinted
-      } // end of if
-      else {
+      if (!Treffer) {
         System.out.println("\nDer Kunde mit der ID: " + Eingabe + " hat bisher noch nichts gebucht.");                                  //Bei keinem Treffer wird nur die ID erneut ausgegeben
       } // end of if-else
     } // end of if
@@ -134,27 +146,28 @@ public class Modul_Kundendaten {
       System.out.println("2 - Zum Veraendern von Kundendaten.");
       System.out.println("3 - Fuer Ausgabe eines bestimmter Kundendaten.");
       System.out.println("4 - Fuer die Ausgabe aller Kundendaten.");
-      System.out.println("5 - Fuer die Ausgabe mittels KundenID.");
+      System.out.println("5 - Buchungsabfrage mittels KundenID.");
       System.out.println("6 - Zurueckkehren zum Hauptprogramm.");
       Auswahl = Tastatur.liesInt(); 
       
       switch (Auswahl) {                                                                         //Verschiedene Cases fuer unterschiedliche Untermodule
         case  1:
-        Modul_Kundendaten.KundenEingabe(Kundendaten,AnzahlKunden,Eintrage);
-        break;
+          Modul_Kundendaten.KundenEingabe(Kundendaten,AnzahlKunden,Eintrage);
+          break;
         case  2:
-        Modul_Kundendaten.KundenVeraender(Kundendaten,AnzahlKunden,Eintrage);
-        break;
+          Modul_Kundendaten.KundenVeraender(Kundendaten,AnzahlKunden,Eintrage);
+          break;
         case  3:
-        Modul_Kundendaten.AusgabeEinzel(Kundendaten,AnzahlKunden,Eintrage);
-        break;
+          Modul_Kundendaten.AusgabeEinzel(Kundendaten,AnzahlKunden,Eintrage);
+          break;
         case  4:
-        Modul_Kundendaten.AusgabeAlle(Kundendaten,AnzahlKunden,Eintrage);
+          Modul_Kundendaten.AusgabeAlle(Kundendaten,AnzahlKunden,Eintrage);
+          break;
         case  5:
-        Modul_Kundendaten.BuchungDerKundenID(Kundendaten,AnzahlKunden,Eintrage,Buchungsdaten);
-        break;
+          Modul_Kundendaten.BuchungDerKundenID(Kundendaten,AnzahlKunden,Eintrage,Buchungsdaten);
+          break;
         default: 
-        System.out.println("\nKeine gueltige Eingabe!");
+          System.out.println("\nKeine gueltige Eingabe!");
       } // end of switch
     } while (Auswahl != 6); // end of do-while
     
