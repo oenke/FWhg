@@ -17,7 +17,7 @@ public class Modul_Kundendaten {
     else {
       int k = 0;
       while (Kundendaten[k][0] != null) {            
-        k++;                                                                                 //KundenID erhöhen solange KundeID schon vorhanden ist
+        k++;                                                                                 //KundenID erhoehen solange KundeID schon vorhanden ist
       } // end of while
       
       for (int i=0;i<3;i++) {
@@ -111,12 +111,12 @@ public class Modul_Kundendaten {
       for (int i=0;i<Buchungsdaten.length;i++ ) {
         for (int k = 0;k<Buchungsdaten[i].length;k++ ) {
           if (Buchungsdaten[i][k] == null) {
-            helper = 0;                          //Reset der Zähler bei einem Leeren Arrayfeld
-            helper2 = 0;                          //Reset der Zähler bei einem Leeren Arrayfeld
-            whg=0;                                //Reset der Zähler bei einem Leeren Arrayfeld
+            helper = 0;                          //Reset der Zaehler bei einem Leeren Arrayfeld
+            helper2 = 0;                          //Reset der Zaehler bei einem Leeren Arrayfeld
+            whg=0;                                //Reset der Zaehler bei einem Leeren Arrayfeld
           } // end of if
           if (Buchungsdaten[i][k] != null && Integer.parseInt(Buchungsdaten[i][k]) == Eingabe ) {
-            helper2 = helper2 + 1;         //Anfangstag bis zum Endtag hochzählen
+            helper2 = helper2 + 1;         //Anfangstag bis zum Endtag hochzaehlen
             if (helper == 0) {
               helper = k + 1;       //Anfangstag setzen
               helper2 = k + 1;     //Anfangstag setzen
@@ -126,7 +126,7 @@ public class Modul_Kundendaten {
             if (k == (Buchungsdaten[i].length-1)) {
               System.out.println(Kundendaten[Eingabe][0] + " " + Kundendaten[Eingabe][1] + " hat die Wohnung "+whg+" vom Tag "+helper+" bis zum Tag "+helper2+" gebucht!");  //Ausgabe bei gebuchter Wohnung      
             }else{
-              if (Treffer && Buchungsdaten[i][(k+1)] == null ) {     //Wenn Treffer und das nächste Feld Leer ist ausgeben
+              if (Treffer && Buchungsdaten[i][(k+1)] == null ) {     //Wenn Treffer und das naechste Feld Leer ist ausgeben
                 System.out.println(Kundendaten[Eingabe][0] + " " + Kundendaten[Eingabe][1] + " hat die Wohnung "+whg+" vom Tag "+helper+" bis zum Tag "+helper2+" gebucht!");  //Ausgabe bei gebuchter Wohnung
               } // end of if
             }                                                                                                      //Bis eine KundenID gefunden wurde die mit der Eingabe passt, dann printen.
@@ -138,7 +138,7 @@ public class Modul_Kundendaten {
       } // end of if-else
     } // end of if
     else {
-      System.out.println("Ungültige Eingabe!");
+      System.out.println("Ungueltige Eingabe!");
     } // end of if-else
   }
   
