@@ -88,7 +88,7 @@ public class Modul_Datumrechner {
               } // end of if
               break;
             case  9: 
-              if (tag >= 30) {
+              if (tag <= 30) {
                 tagpasstzumonat = true;
               } // end of if
               break;
