@@ -123,9 +123,13 @@ public class Modul_Kundendaten {
               whg = i+1;      //Welche Wohnung wurde gebucht ?
             } // end of if       
             Treffer = true;
-            if (Treffer && Buchungsdaten[i][(k+1)] == null ) {     //Wenn Treffer und das nächste Feld Leer ist ausgeben
-              System.out.println(Kundendaten[Eingabe][0] + " " + Kundendaten[Eingabe][1] + " hat die Wohnung "+whg+" vom Tag "+helper+" bis zum Tag "+helper2+" gebucht!");  //Ausgabe bei gebuchter Wohnung
-            } // end of if                                                                                                            //Bis eine KundenID gefunden wurde die mit der Eingabe passt, dann printen.
+            if (k == (Buchungsdaten[i].length-1)) {
+              System.out.println(Kundendaten[Eingabe][0] + " " + Kundendaten[Eingabe][1] + " hat die Wohnung "+whg+" vom Tag "+helper+" bis zum Tag "+helper2+" gebucht!");  //Ausgabe bei gebuchter Wohnung      
+            }else{
+              if (Treffer && Buchungsdaten[i][(k+1)] == null ) {     //Wenn Treffer und das nächste Feld Leer ist ausgeben
+                System.out.println(Kundendaten[Eingabe][0] + " " + Kundendaten[Eingabe][1] + " hat die Wohnung "+whg+" vom Tag "+helper+" bis zum Tag "+helper2+" gebucht!");  //Ausgabe bei gebuchter Wohnung
+              } // end of if
+            }                                                                                                      //Bis eine KundenID gefunden wurde die mit der Eingabe passt, dann printen.
           }
         } // end of for
       } // end of for
