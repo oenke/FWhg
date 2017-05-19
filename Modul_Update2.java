@@ -15,7 +15,7 @@ public class Modul_Update2 {
   //Modul um zu ueberpruefen ob Datei existiert, falls nicht diese anlegen
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   public static void checkDB(int jahr){           //Methodenkopf mit Parameteruebergabe
-    String data1 = "db/umsaetze_"+jahr+".txt";
+    String data1 = "db/umsaetze_"+jahr+".txt",data2 = "db/fwohnungen.txt";
     File f = new File(data1);                     //
     if(!f.exists()) {                             //Abfrage ob Datei nicht existiert
       try {
@@ -31,6 +31,35 @@ public class Modul_Update2 {
         e.printStackTrace();                                                 //Fehlerabfang bei Input/Output
       }
     } 
+    
+    f = new File(data2);                     //
+    if(!f.exists()) {                             //Abfrage ob Datei nicht existiert
+      try {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(data2));   //BufferedWriter auf Datei erstellen
+        for (int i = 0; i < 11; i++) {                                       //For Schleife um Textdatei zu befuellen
+          if (i == 0) {
+            writer.write("10");
+            writer.newLine(); 
+          } else{
+            if (i<4) {
+              writer.write((i)+";20;15;");
+              writer.newLine(); 
+            } else if(i<6){
+              writer.write((i)+";30;25;");
+              writer.newLine(); 
+            }else{
+              writer.write((i)+";40;35;");
+              writer.newLine(); 
+            }// end of if                                              //Neue Zeile anfangen
+          }
+        }
+        writer.close();                                                      //Writer schliessen
+      }
+      catch (IOException e) {
+        e.printStackTrace();                                                 //Fehlerabfang bei Input/Output
+      }
+    } 
+    
   }
   
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
