@@ -7,7 +7,7 @@
   * Programmbeschreibung: Verwaltungssystem fuer Ferienwohnungen  
   *
   * Modul_ueberblick by Daniel Schoenke
-  * Dieses Modul bietet einen Ueberblick ueber die jaehrliche Auslastung und die jaehrlichen Einnahmen der aller Ferienwohnungen
+  * Dieses Modul bietet einen Ueberblick ueber die jaehrliche Auslastung und die jaehrlichen Einnahmen aller Ferienwohnungen
   * Es wird dazu eine Tabelle angezeigt
   */ 
   

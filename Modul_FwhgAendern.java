@@ -10,8 +10,8 @@
   * Dieses Modul bietet die Moeglichkeit den Tagespreis bzw. die Groesse einer Ferienwohnung zu aendern.
   * Am Anfang wird dazu als Uebersicht eine Tabelle der Wohnung mit Tagespreisen und Groesse ausgegeben.
   * Anschliessend hat der Benutzer die Moeglichkeit eine Wohnung auszuwaehlen und anzupassen.
-  * Fehleingabe wie eine falsche ID, negative Preise und Groessen werden abgefange.
-  *
+  * Fehleingabe wie eine falsche ID, negative Preise und Groessen werden abgefangen.
+  * 
   */ 
 
 public class Modul_FwhgAendern {
@@ -54,7 +54,7 @@ public class Modul_FwhgAendern {
           wdh = Modul_FwhgAendern.fehler(x); //Abfangen der Eingabe einer negativen Zahl
         } while (wdh==true); // end of do-while
          fwhg[wahl][1] = String.valueOf(x); //Setzen des neunen Werts
-		 
+     
         do {
           x = 0;
           wdh = false;
