@@ -36,78 +36,78 @@ public class Modul_Datumrechner {
         if (tag >= 1 && tag <= 31) {
           switch (monat) {
             case  1: 
-              if (tag <= 31) {
-                tagpasstzumonat = true; 
-              } // end of if
-              break;
+            if (tag <= 31) {
+              tagpasstzumonat = true; 
+            } // end of if
+            break;
             case  2: 
-              if (tag == 29) { //FUER FEBRUAR NOCH SCHALTJAHRE BERECHNEN
-                if (jahr % 4 == 0) {
-                  if (jahr % 100 == 0) {
-                    if (jahr % 400 == 0) {
-                      tagpasstzumonat = true;
-                    } // end of if
-                  } // end of if
-                  else {
+            if (tag == 29) { //FUER FEBRUAR NOCH SCHALTJAHRE BERECHNEN
+              if (jahr % 4 == 0) {
+                if (jahr % 100 == 0) {
+                  if (jahr % 400 == 0) {
                     tagpasstzumonat = true;
-                  } // end of if-else
-                } // end of if 
-              } // end of if
-              else if (tag <= 28) {
-                tagpasstzumonat = true;   
-              } // end of if-else
-              break;
+                  } // end of if
+                } // end of if
+                else {
+                  tagpasstzumonat = true;
+                } // end of if-else
+              } // end of if 
+            } // end of if
+            else if (tag <= 28) {
+              tagpasstzumonat = true;   
+            } // end of if-else
+            break;
             case  3: 
-              if (tag <= 31) {
-                tagpasstzumonat = true;  
-              } // end of if
-              break;
+            if (tag <= 31) {
+              tagpasstzumonat = true;  
+            } // end of if
+            break;
             case  4: 
-              if (tag <= 30) { 
-                tagpasstzumonat = true;
-              } // end of if
-              break;
+            if (tag <= 30) { 
+              tagpasstzumonat = true;
+            } // end of if
+            break;
             case  5: 
-              if (tag <= 31) {
-                tagpasstzumonat = true;
-              } // end of if
-              break;
+            if (tag <= 31) {
+              tagpasstzumonat = true;
+            } // end of if
+            break;
             case  6: 
-              if (tag <= 30) {
-                tagpasstzumonat = true;
-              } // end of if
-              break;
+            if (tag <= 30) {
+              tagpasstzumonat = true;
+            } // end of if
+            break;
             case  7: 
-              if (tag <= 31) {
-                tagpasstzumonat = true;  
-              } // end of if
-              break;
+            if (tag <= 31) {
+              tagpasstzumonat = true;  
+            } // end of if
+            break;
             case  8: 
-              if (tag <= 31) {
-                tagpasstzumonat = true;  
-              } // end of if
-              break;
+            if (tag <= 31) {
+              tagpasstzumonat = true;  
+            } // end of if
+            break;
             case  9: 
-              if (tag <= 30) {
-                tagpasstzumonat = true;
-              } // end of if
-              break;
+            if (tag <= 30) {
+              tagpasstzumonat = true;
+            } // end of if
+            break;
             case  10: 
-              if (tag <= 31) {
-                tagpasstzumonat = true;
-              } // end of if
-              break;
+            if (tag <= 31) {
+              tagpasstzumonat = true;
+            } // end of if
+            break;
             case  11: 
-              if (tag <= 30) {
-                tagpasstzumonat = true; 
-              } // end of if
-              break;
+            if (tag <= 30) {
+              tagpasstzumonat = true; 
+            } // end of if
+            break;
             case  12: 
-              if (tag <= 31) {
-                tagpasstzumonat = true;  
-              } // end of if
-              break;
-              //System.out.print("Die Eingabe ist Falsch, bitte wiederholen.\n");
+            if (tag <= 31) {
+              tagpasstzumonat = true;  
+            } // end of if
+            break;
+            //System.out.print("Die Eingabe ist Falsch, bitte wiederholen.\n");
           } // end of switch
           fehler = true; 
         } // end of if
@@ -136,4 +136,15 @@ public class Modul_Datumrechner {
     
     return kalendertag;
   } // end of datum 
+  
+  //Funktion um das gewaehlte Jahr auf ein Schaltjahr zu pruefen
+  public static int schaltjahr(int jahr)  {
+    int Datum;
+    if (new GregorianCalendar().isLeapYear(jahr)==true) {
+    Datum = 366; }
+    else {
+      Datum = 365;  
+    } // end of if-else 
+    return(Datum);
+  }   
 } 

@@ -20,7 +20,7 @@ public class Ferienwohnung {
     final int Eintrage = 3;       // Anzahl der Kundeninformationen
     String Kundendaten [] [] = new String [AnzahlKunden][Eintrage]; // Array fuer die Kundendaten 1. Dimension KundenID 2. Dimension Kundeninfos
     int Wohnung = dbANZ[0]; //Anzahl der vorhandenen Wohnungen
-    int Datum = Ferienwohnung.schaltjahr(jahr);  //Tage werden durch Funktion entsprechend Schaltjahr oder nicht gesetzt
+    int Datum = Modul_Datumrechner.schaltjahr(jahr);  //Tage werden durch Funktion entsprechend Schaltjahr oder nicht gesetzt
     String Buchungsdaten[ ][ ] = new String[Wohnung][Datum];   //Array fuer die Buchungsdaten 1. Dimension WohnungsID 2. Dimension Gebuchter Tag mit Kundennummer
     String fwohnungen[][] = new String[Wohnung][3];            //Array fuer die Wohnungen 1. Dimension WohnungsID 2. Dimension Informationen d. Wohnungen
     String umsaetze[][] = new String[Wohnung][2];              //Array fuer die Umsaetze 1. Dimension WohnungsID 2. Dimension Umsatz
@@ -80,7 +80,7 @@ public class Ferienwohnung {
               System.out.println("Wiederholen Sie bitte Ihre eingabe!");
             } // end of if
           }while(jahr < 1970 || jahr > 2050);  
-          Datum = Ferienwohnung.schaltjahr(jahr);    
+          Datum = Modul_Datumrechner.schaltjahr(jahr);    
           Buchungsdaten = new String[Wohnung][Datum];
           umsaetze = new String[Wohnung][2];
           break;
@@ -98,16 +98,7 @@ public class Ferienwohnung {
     
   } 
   
-  //Funktion um das gewaehlte Jahr auf ein Schaltjahr zu pruefen
-  public static int schaltjahr(int jahr)  {
-    int Datum;
-    if (new GregorianCalendar().isLeapYear(jahr)==true) {
-    Datum = 366; }
-    else {
-      Datum = 365;  
-    } // end of if-else 
-    return(Datum);
-  }   
+  
 }
   
 
