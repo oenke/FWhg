@@ -80,8 +80,7 @@ public class Ferienwohnung {
               System.out.println("Wiederholen Sie bitte Ihre eingabe!");
             } // end of if
           }while(jahr < 1970 || jahr > 2050);  
-          Datum = Modul_Datumrechner.schaltjahr(jahr);    
-          Buchungsdaten = new String[Wohnung][Datum];
+          Datum = Modul_Datumrechner.schaltjahr(jahr);    // ueberprueft das Jahr auf Schaltjahr, und setzt entsprechend die maximalen Tage auf Datum
           umsaetze = new String[Wohnung][2];
           break;
         case 8:
