@@ -81,6 +81,7 @@ public class Ferienwohnung {
             } // end of if
           }while(jahr < 1970 || jahr > 2050);  
           Datum = Modul_Datumrechner.schaltjahr(jahr);    // ueberprueft das Jahr auf Schaltjahr, und setzt entsprechend die maximalen Tage auf Datum
+          Buchungsdaten = new String[Wohnung][Datum];     // Datum bestimmt die Groesse der 2. Dimension 
           umsaetze = new String[Wohnung][2];
           break;
         case 8:
