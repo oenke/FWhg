@@ -18,14 +18,14 @@ public class Modul_Buchung {
     int wohnungswahl;
     do{
       System.out.println("\nWaehlen Sie die Wohnung aus (1-10):");
-      wohnungswahl = Tastatur.liesInt()-1;
+      wohnungswahl = Tastatur.liesInt()-1;                                                                              //Eingabe der Wohnungswahl und check ob zulaessig
     }while(wohnungswahl > 9 || wohnungswahl < 0);
     int anfangsdatum,enddatum;
     boolean belegt = false; 
     
     do { 
       System.out.println("\nAnfangsdatum der Buchung bitte eingeben."); 
-      anfangsdatum = Modul_Datumrechner.Datum(jahr);
+      anfangsdatum = Modul_Datumrechner.Datum(jahr);                                                                     //Zur Eingabe des Datums und zum check
       belegt = false;
       if (Buchungsdaten[wohnungswahl][anfangsdatum] != null) {                                                           
         belegt = true;                                                                                                   //Zur Ueberpruefung ob das Datum an diesem mit der eingegeben Wohnung schon belegt ist
@@ -58,7 +58,7 @@ public class Modul_Buchung {
           System.out.println("\nDen Preis annehmen? <j> zum Fortfahren, andere Eingabe zum abbrechen");                    //Fall angenommen wird, wird die Buchung fortgesetzt, ansonsten abgebrochen
           char Wahlo = Tastatur.liesChar();
           if (Wahlo != 'j') {
-            return;
+            return;                                                                                                        //Abbruch des Unterprogrammes
           }else{
             double help = Double.parseDouble(umsaetze[wohnungswahl][1]) + gesamtpreis;                                     //Wert der Umsaetze als double speichern
             umsaetze[wohnungswahl][1] = String.valueOf(help);                                                              //Wert in der Uumsaetze datenbank eintragen
@@ -72,9 +72,9 @@ public class Modul_Buchung {
       System.out.println("Zur Ausgabe aller Kunden einmal <0> eingeben.");                                                //Zum abbruch falls Kunde nicht vorhanden sind
       System.out.println("Zum abbrechen des Programms <999> eingeben."); 
       System.out.print("\nBitte die Kundennummer eingeben:");                                                             //Eingabe der KundenID
-      
       KundNmr = Tastatur.liesInt()-1;
-      if (KundNmr == 0) {
+      System.out.println("");                                                                                             //Leerzeile
+      if (KundNmr == -1) {
         for (int t=0;t<50; t++) {
           if (Kundendaten[t][0] != null) {
             for (int k=0;k<3;k++) {
@@ -93,7 +93,7 @@ public class Modul_Buchung {
           System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
         } // end of if
       } // end of if-else
-    } while (KundNmr == 0); // end of do-while
+    } while (KundNmr == -1); // end of do-while
     System.out.println("Fuer " + Kundendaten[KundNmr][0] + " " + Kundendaten[KundNmr][1] + " wurde die Wohnung " + (wohnungswahl+1) + " gebucht."); //Ausgabe was gebucht wurde fuer welchen Kunden
     for (int i=anfangsdatum;i<=enddatum;i++ ) {  
       String strI = Integer.toString(KundNmr);                                                                            //Umwandlung des Integers der Kundennummer in eines Strings zur Speicherung

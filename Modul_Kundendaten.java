@@ -107,7 +107,7 @@ public class Modul_Kundendaten {
     System.out.println("");//Leerzeile
     boolean Treffer = false;
     int helper = 0,helper2 = 0,whg=0;                                                                                                           //Bei einem Treffer zur Ausgabe verschiedener Texte
-    if (Eingabe > 0 && Eingabe < AnzahlKunden) {
+    if (Eingabe >= 0 && Eingabe < AnzahlKunden) {
       for (int i=0;i<Buchungsdaten.length;i++ ) {
         for (int k = 0;k<Buchungsdaten[i].length;k++ ) {
           if (Buchungsdaten[i][k] == null) {
