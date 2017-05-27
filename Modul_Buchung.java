@@ -89,7 +89,7 @@ public class Modul_Buchung {
       } // end of if-else
       else {
         if (KundNmr < 0 || Kundendaten[KundNmr][0] == null ) {
-          KundNmr = 0;                                                                                                     //Bei ungueltiger Kundenummer wird die Eingabe wiederholt, wenn z.B. Kunde nicht vorhanden ist
+          KundNmr = -1;                                                                                                     //Bei ungueltiger Kundenummer wird die Eingabe wiederholt, wenn z.B. Kunde nicht vorhanden ist
           System.out.println("\nKeine gueltige Kundenummer, moeglicherweise ist der Kunde noch nicht angelegt."); 
         } // end of if
       } // end of if-else
